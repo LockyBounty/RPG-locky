@@ -1,0 +1,42 @@
+body {
+
+}
+header {
+    background-color: orange;
+    display:flex;
+    position:fixed;
+    width:100%;
+    height:100px;
+    top:0;
+    left:0;
+
+}
+
+
+
+
+.perso1{
+    /*background-image: url(images/char1.png);*/
+    background-size: 50px 50px;
+    max-width:100%;
+    
+}
+.perso1 img {
+    border-radius:50%;
+    width: 30%;
+    
+}
+
+#img2{
+    background-size: 50px 50px;
+    max-width:100%;
+    border-radius:50%;
+    right:10px;
+    position:relative;
+    width: 20%;
+}
+.perso2 img {
+  
+    
+    
+}
