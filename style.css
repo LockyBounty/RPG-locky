@@ -16,13 +16,67 @@ header {
 }
 
 
-.perso1{
-    /*background-image: url(images/char1.png);*/
-    
-    
-    
-    
+#vs-logo1 {
+
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 45%;  
 }
+.perso1-exp{
+    width:40px;
+    height: 40px;
+    position: absolute;
+    left:7px;
+    top:7px;
+    z-index:210;
+    color:white;
+    display:flex;
+}
+#niv-1{
+    left:50%;
+    top:50%;
+    z-index:210;
+    color:white;
+    display:flex;
+    position: absolute;
+}
+
+#lvl-star1 {
+    width:40px;
+    height: 40px;
+    position:relative;
+    right:7px;
+    top:7px;
+    z-index:200;     
+}
+.perso2-exp{
+    width:40px;
+    height: 40px;
+    position: absolute;
+    right:7px;
+    top:7px;
+    z-index:210;
+    color:white;
+    display:flex;
+}
+#niv-2{
+    left:50%;
+    top:50%;
+    z-index:210;
+    color:white;
+    display:flex;
+    position: absolute;
+}
+#lvl-star2 {
+    width:40px;
+    height: 40px;
+    position:relative;
+    right:7px;
+    top:7px;
+    z-index:200;  
+}
+
 #img1 {
     background-size: 50px 50px;
     border-style: solid;
@@ -38,8 +92,7 @@ header {
     z-index: 100;
 }
 .perso1-nom {
-    
-    
+      
     width: 200px;
     height: 22px;
     position: absolute;
@@ -50,7 +103,6 @@ header {
     text-align: center;
     z-index:1;
 }
-
 
     .perso1-nom:before {
         content: " ";
@@ -85,24 +137,15 @@ header {
     border-style: solid;
     border-color: black;
     border-width: 2px;
-    
     width: 195px;
     height: 15px;
     position: absolute;
     left: 104px;
     top: 60px;
     color: white;
-    
     text-align: center;
     align-content: center;
     z-index:-1;
-}
-
-#lvl-star1{
-    width:50%;
-    position:absolute;
-    left:10px;
-    top:50px;
 }
 
 
