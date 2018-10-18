@@ -1,5 +1,5 @@
 body {
-    background-color:green;
+    background-color: green;
     width: 100%;
     height: 100%;
 }
@@ -15,14 +15,23 @@ header {
     overflow: hidden;
 }
 
+@keyframes glowing {
+    0% { box-shadow: 0 0 -10px #c4a300; }
+    40% { box-shadow: 0 0 20px #c4a300; }
+    60% { box-shadow: 0 0 20px #c4a300; }
+    100% { box-shadow: 0 0 -10px #c4a300; }
+  }
+
 .perso1 {
     background-color: orange;
-    
+
 }
+
 .perso2 {
     background-color: orange;
-    
+
 }
+
 #vs-logo1 {
     width: 90px;
     height: 90px;
@@ -115,20 +124,20 @@ header {
     z-index: 1;
 }
 
-    .perso1-nom:before {
-        content: " ";
-        background: brown;
-        border-style: solid;
-        border-color: black;
-        border-width: 2px;
-        position: absolute;
-        top: 0;
-        left: -10px;
-        right: -10px;
-        bottom: 0;
-        z-index: -1;
-        transform: skewX(-15deg);
-    }
+.perso1-nom:before {
+    content: " ";
+    background: brown;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    z-index: -1;
+    transform: skewX(-15deg);
+}
 
 .perso1-vie {
     background-color: limegreen;
@@ -189,20 +198,20 @@ header {
     z-index: 1;
 }
 
-    .perso2-nom:before {
-        content: " ";
-        background: brown;
-        border-style: solid;
-        border-color: black;
-        border-width: 2px;
-        position: absolute;
-        top: 0;
-        left: -10px;
-        right: -10px;
-        bottom: 0;
-        z-index: -1;
-        transform: skewX(15deg);
-    }
+.perso2-nom:before {
+    content: " ";
+    background: brown;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    z-index: -1;
+    transform: skewX(15deg);
+}
 
 .perso2-vie {
     background-color: limegreen;
@@ -251,15 +260,17 @@ header {
     top: 110px;
     left: 100px;
 }
-.zone-perso1{
-    width:90px;
+
+.zone-perso1 {
+    width: 90px;
     height: 90px;
-    
+
     position: absolute;
     top: 190px;
     left: 130px;
     display: flex;
 }
+
 .zone-perso1 img {
     max-height: 100%;
     max-width: 100%;
@@ -267,18 +278,19 @@ header {
     transform: rotateY(-180deg);
 }
 
-.zone-perso2{
-    width:90px;
+.zone-perso2 {
+    width: 90px;
     height: 90px;
-    
+
     position: absolute;
     top: 190px;
     right: 130px;
     display: flex;
 }
+
 .zone-perso2 img {
     size: 5%;
-    
+
     max-width: 100%;
     flex: auto;
 }
@@ -298,13 +310,20 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk1-norm img {
-        border-radius: 50%;
-        max-width: 100%;
-        max-height: 100%;
-        flex: auto;
-    }
+.btn-atk1-norm {
+    
+    background-image: url(images/atk_buttons/fist.png);
 
+    background-size: contain;
+    text-decoration: none;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;/*remove square box after pushing the button*/
+}
 .atk1-moy {
     width: 40px;
     height: 40px;
@@ -318,11 +337,19 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk1-moy img {
-        border-radius: 50%;
-        max-width: 100%;
-        flex: auto;
-    }
+.btn-atk1-moy{
+    
+    background-image: url(images/atk_buttons/sword.png);
+
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;
+}
 
 .atk1-fort {
     width: 40px;
@@ -337,11 +364,18 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk1-fort img {
-        border-radius: 50%;
-        max-width: 100%;
-        flex: auto;
-    }
+.btn-atk1-fort{
+    background-image: url(images/atk_buttons/magic.png);
+
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;
+}
 
 .atk1-def {
     width: 40px;
@@ -356,11 +390,20 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk1-def img {
-        border-radius: 50%;
-        max-width: 100%;
-        flex: auto;
-    }
+.btn-atk1-def{
+    
+    background-image: url(images/atk_buttons/shield.png);
+
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;
+}
+
 /*ATK PERSO 2*/
 
 .atk2-norm {
@@ -376,11 +419,18 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk2-norm img {
-        border-radius: 50%;
-        max-width: 100%;
-        flex: auto;
-    }
+.btn-atk2-norm {
+    background-image: url(images/atk_buttons/fist.png);
+
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;
+}
 
 .atk2-moy {
     width: 40px;
@@ -395,11 +445,18 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk2-moy img {
-        border-radius: 50%;
-        max-width: 100%;
-        flex: 1;
-    }
+.btn-atk2-moy {
+    background-image: url(images/atk_buttons/sword.png);
+
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;
+}
 
 .atk2-fort {
     width: 40px;
@@ -414,18 +471,25 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk2-fort img {
-        border-radius: 50%;
-        max-width: 100%;
-        flex: auto;
-    }
+.btn-atk2-fort {
+    background-image: url(images/atk_buttons/magic.png);
+
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;
+}
 
 .atk2-def {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border-style:groove;
-    border-width:3px;
+    border-style: groove;
+    border-width: 3px;
     position: absolute;
     top: 75%;
     right: 3%;
@@ -433,11 +497,18 @@ header {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-    .atk2-def img {
-        border-radius: 50%;
-        max-width: 100%;
-        flex: auto;
-    }
+.btn-atk2-def {
+    background-image: url(images/atk_buttons/shield.png);
+
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex: auto;
+    animation: glowing 1500ms infinite;
+    outline: none;
+}
 
 
 /*ZONE DE LOG J1*/
@@ -453,12 +524,13 @@ header {
     position: absolute;
     bottom: 113px;
     color: white;
-    
+
     display: block;
     text-align: center;
     align-items: center;
     z-index: 250;
 }
+
 .log1 {
     width: 420px;
     height: 100px;
@@ -498,7 +570,7 @@ header {
     width: 420px;
     height: 100px;
     background-color: rgba(29, 21, 182, 0.9);
-    
+
     border-radius: 10px;
     border-style: groove;
     border-width: 3px;
