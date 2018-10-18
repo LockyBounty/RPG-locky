@@ -17,12 +17,18 @@ header {
 
 @keyframes glowing {
     0% { box-shadow: 0 0 -10px lightgray; }
-    40% { box-shadow: 3px 0px 10px lime; }
-    60% { box-shadow: 0 0 20px yellow; }
+    40% { box-shadow: 3px 0px 10px white; }
+    60% {
+        box-shadow: 0 0 10px #4494C7;
+    }
     100% {
-        box-shadow: 5px 0px -10px blue;
+        box-shadow: 5px 0px -10px white;
     }
   }
+
+li {
+    list-style-type:none;
+}
 
 .perso1 {
     background-color: orange;
@@ -585,4 +591,6 @@ header {
     left: 470px;
     color: white;
     z-index: 250;
+    overflow: scroll;
+    overflow-x: hidden;
 }
