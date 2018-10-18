@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color:green;
     width: 100%;
     height: 100%;
 }
@@ -16,9 +16,13 @@ header {
 }
 
 .perso1 {
-    background-color: green;
+    background-color: orange;
+    
 }
-
+.perso2 {
+    background-color: orange;
+    
+}
 #vs-logo1 {
     width: 90px;
     height: 90px;
@@ -49,7 +53,7 @@ header {
 #lvl-star1 {
     width: 40px;
     height: 40px;
-    position: relative;
+    position: absolute;
     right: 7px;
     top: 0px;
     z-index: 200;
@@ -78,7 +82,7 @@ header {
 #lvl-star2 {
     width: 40px;
     height: 40px;
-    position: relative;
+    position: absolute;
     right: 7px;
     top: 0px;
     z-index: 200;
@@ -241,42 +245,77 @@ header {
     border-width: 5px;
     border-color: goldenrod;
     width: 700px;
-    height: 500px;
+    height: 350px;
     z-index: 200;
     position: fixed;
-    top: 120px;
+    top: 110px;
     left: 100px;
 }
+.zone-perso1{
+    width:90px;
+    height: 90px;
+    
+    position: absolute;
+    top: 190px;
+    left: 130px;
+    display: flex;
+}
+.zone-perso1 img {
+    max-height: 100%;
+    max-width: 100%;
+    flex: auto;
+    transform: rotateY(-180deg);
+}
+
+.zone-perso2{
+    width:90px;
+    height: 90px;
+    
+    position: absolute;
+    top: 190px;
+    right: 130px;
+    display: flex;
+}
+.zone-perso2 img {
+    size: 5%;
+    
+    max-width: 100%;
+    flex: auto;
+}
+
 
 /*ATK PERSO 1*/
 .atk1-norm {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: groove;
     border-width: 3px;
-    position: relative;
+    position: absolute;
     top: 30%;
     left: 8%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk1-norm img {
         border-radius: 50%;
         max-width: 100%;
+        max-height: 100%;
         flex: auto;
     }
 
 .atk1-moy {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: groove;
     border-width: 3px;
-    position: relative;
-    top: 35%;
+    position: absolute;
+    top: 45%;
     left: 4%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk1-moy img {
@@ -286,15 +325,16 @@ header {
     }
 
 .atk1-fort {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: groove;
     border-width: 3px;
-    position: relative;
-    top: 40%;
+    position: absolute;
+    top: 60%;
     left: 2%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk1-fort img {
@@ -304,15 +344,16 @@ header {
     }
 
 .atk1-def {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: groove;
     border-width: 3px;
-    position: relative;
-    top: 45%;
+    position: absolute;
+    top: 75%;
     left: 3%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk1-def img {
@@ -323,8 +364,8 @@ header {
 /*ATK PERSO 2*/
 
 .atk2-norm {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: groove;
     border-width: 3px;
@@ -332,6 +373,7 @@ header {
     top: 30%;
     right: 8%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk2-norm img {
@@ -341,15 +383,16 @@ header {
     }
 
 .atk2-moy {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: groove;
     border-width: 3px;
     position: absolute;
     top: 45%;
-    right: 5%;
+    right: 4%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk2-moy img {
@@ -359,8 +402,8 @@ header {
     }
 
 .atk2-fort {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style: groove;
     border-width: 3px;
@@ -368,6 +411,7 @@ header {
     top: 60%;
     right: 2%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk2-fort img {
@@ -377,8 +421,8 @@ header {
     }
 
 .atk2-def {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border-style:groove;
     border-width:3px;
@@ -386,6 +430,7 @@ header {
     top: 75%;
     right: 3%;
     display: flex;
+    box-shadow: 1px 0px 1px 0px #0ff;
 }
 
     .atk2-def img {
@@ -400,23 +445,24 @@ header {
 .titre-log1 {
     width: 120px;
     height: 30px;
-    background-color: rgba(54, 45, 245, .4);
+    background-color: rgba(29, 21, 182, 0.9);
     border-radius: 10px;
     border-style: groove;
     border-width: 3px;
     border-color: white;
     position: absolute;
-    bottom: 123px;
+    bottom: 113px;
     color: white;
     
     display: block;
     text-align: center;
     align-items: center;
+    z-index: 250;
 }
 .log1 {
     width: 420px;
-    height: 110px;
-    background-color: rgba(54, 45, 245, .4);
+    height: 100px;
+    background-color: rgba(29, 21, 182, 0.9);
     border-radius: 10px;
     border-style: groove;
     border-width: 3px;
@@ -424,6 +470,7 @@ header {
     position: absolute;
     bottom: 10px;
     color: white;
+    z-index: 250;
 }
 
 /*ZONE DE LOG J2*/
@@ -431,25 +478,26 @@ header {
 .titre-log2 {
     width: 120px;
     height: 30px;
-    background-color: rgba(54, 45, 245, .4);
+    background-color: rgba(29, 21, 182, 0.9);
     border-radius: 10px;
     border-style: groove;
     border-width: 3px;
     border-color: white;
     position: absolute;
     left: 770px;
-    bottom: 123px;
+    bottom: 113px;
     color: white;
     display: block;
     text-align: center;
 
     align-items: center;
+    z-index: 250;
 }
 
 .log2 {
     width: 420px;
-    height: 110px;
-    background-color: rgba(54, 45, 245, .4);
+    height: 100px;
+    background-color: rgba(29, 21, 182, 0.9);
     
     border-radius: 10px;
     border-style: groove;
@@ -459,4 +507,5 @@ header {
     bottom: 10px;
     left: 470px;
     color: white;
+    z-index: 250;
 }
