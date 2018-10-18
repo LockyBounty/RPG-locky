@@ -16,10 +16,12 @@ header {
 }
 
 @keyframes glowing {
-    0% { box-shadow: 0 0 -10px #c4a300; }
-    40% { box-shadow: 0 0 20px #c4a300; }
-    60% { box-shadow: 0 0 20px #c4a300; }
-    100% { box-shadow: 0 0 -10px #c4a300; }
+    0% { box-shadow: 0 0 -10px lightgray; }
+    40% { box-shadow: 3px 0px 10px lime; }
+    60% { box-shadow: 0 0 20px yellow; }
+    100% {
+        box-shadow: 5px 0px -10px blue;
+    }
   }
 
 .perso1 {
@@ -525,7 +527,7 @@ header {
     border-width: 3px;
     border-color: white;
     position: absolute;
-    bottom: 113px;
+    top: 468px;
     color: white;
 
     display: block;
@@ -543,9 +545,11 @@ header {
     border-width: 3px;
     border-color: white;
     position: absolute;
-    bottom: 10px;
+    top: 500px;
     color: white;
     z-index: 250;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 /*ZONE DE LOG J2*/
@@ -560,11 +564,10 @@ header {
     border-color: white;
     position: absolute;
     left: 770px;
-    bottom: 113px;
+    top: 468px;
     color: white;
     display: block;
     text-align: center;
-
     align-items: center;
     z-index: 250;
 }
@@ -573,13 +576,12 @@ header {
     width: 420px;
     height: 100px;
     background-color: rgba(29, 21, 182, 0.9);
-
     border-radius: 10px;
     border-style: groove;
     border-width: 3px;
     border-color: white;
     position: absolute;
-    bottom: 10px;
+    top: 500px;
     left: 470px;
     color: white;
     z-index: 250;
