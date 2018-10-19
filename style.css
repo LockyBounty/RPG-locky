@@ -519,6 +519,48 @@ li {
 }
 /*ATTACK FRAMES*/
 
+/*-PERSO1-*/
+.zone-perso1-effects {
+    width: 90px;
+    height: 180px;
+
+    position: absolute;
+    top: 120px;
+    left: 130px;
+    display: flex;
+    border-style: none;
+    z-index: 400;
+}
+
+.zone-perso1-effects img {
+    max-height: 100%;
+    max-width: 100%;
+    flex: auto;
+    transform: rotateY(-180deg);
+    z-index: 400;
+}
+
+/*-PERSO2-*/
+.zone-perso2-effects {
+    width: 90px;
+    height: 180px;
+    /*background-color:blue;*/
+    position: absolute;
+    top: 120px;
+    right: 130px;
+    display: flex;
+    border-style: none;
+    z-index: 400;
+}
+
+.zone-perso2-effects img {
+    
+
+    max-width: 100%;
+    flex: auto;
+    z-index: 400;
+}
+
 
 
 
