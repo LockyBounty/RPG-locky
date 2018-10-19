@@ -1,4 +1,4 @@
-let attack1 = document.querySelector(".btn-atk1-norm");
+let attack1 = document.querySelector("#img1");//.btn-atk1-norm
 let changeImg1 = document.querySelector("#atk1norm");
 
 
@@ -12,8 +12,7 @@ function swapAtk() {
 
 
 if (attack1.addEventListener){
-    attack1.addEventListener("click", swapAtk());
-}
-if (attack1.removeEventListener){
-    attack1.removeEventListener("click", swapAtk());
+    attack1.addEventListener("keydown", swapAtk());
+}else if (attack1.attachEvent) {
+    attack1.attachEvent("keyup", myFunction);
 }
