@@ -17,5 +17,5 @@ soon
 * GIMP
 * RPG Maker MV (to generate character, and for the attack .png)
 * Game-icons.net ( for the attack logos )
-* ezgif.com (to animate and transform .png to .gif without any background)
+* ezgif.com (to animate and transform to .gif without any background)
 * W3School (documentation)
