@@ -9,20 +9,26 @@ let logStats1 = document.querySelector(".log1");
 let changeImg2 = document.querySelector("#zone2norm");
 let logStats2 = document.querySelector(".log2");
 
+let changeZone1 = document.querySelector(".zone-perso1");
+
 let putEffects2 = document.querySelector("#zone2eff");
 
-// BASIC
+// BASIC Souris
 const basicAttackButton = document.querySelector(".atk1-norm");
 basicAttackButton.addEventListener("mousedown", basicAttackStart);
 basicAttackButton.addEventListener("mouseup", basicAttackEnd);
 console.log(basicAttackButton);
-//MEDIUM
+//MEDIUM Souris
 const mediumAttackButton = document.querySelector(".atk1-moy");
 mediumAttackButton.addEventListener("mousedown", mediumAttackStart);
 mediumAttackButton.addEventListener("mouseup", mediumAttackEnd);
+ 
+//ULTIME Souris
 const hardAttackButton = document.querySelector(".atk1-fort");
 hardAttackButton.addEventListener("mousedown", hardAttackStart);
 hardAttackButton.addEventListener("mouseup", hardAttackEnd);
+
+//PROTECT Souris
 
 
 let up = document.querySelector("#up");
@@ -36,6 +42,7 @@ let right = document.querySelector("#right");
 
 function updateCombatLogs(attackName) {
     let d = new Date();
+    
     switch (attackName) {
         case "basic":
             el1 = document.createElement("LI");
@@ -74,6 +81,7 @@ function updateCombatLogs(attackName) {
 
 function basicAttackStart() {
     changeImg1.src = "images/move/soldat1movatkA.gif";
+    // changeZone1.style.animation = "moveChar1 1s linear";
     changeSizeBtnOnAtk.style.maxWidth = "37px";
     changeSizeBtnOnAtk.style.maxHeight = "37px";
     changeImg2.src = "images/move/elf1movattaked.gif";
@@ -122,7 +130,16 @@ function hardAttackEnd() {
 
 }
 
+//DEFENSE SKILL
+let defenseSkillStart =()=> {
+
+}
+let defenseSkillEnd = () => {
+
+}
+
 function presse(event) {
+    console.log(event.keyCode);
     if (event.keyCode != null) {
         switch (event.keyCode) { /*preferez event.keyCode a event.charCode ici, sinon ca fout la merde*/
             case 90:

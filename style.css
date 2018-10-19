@@ -304,7 +304,7 @@ li {
 }
 
 
-/*ATK PERSO 1*/
+/*BOUTONS ATK PERSO 1*/
 .atk1-norm {
     width: 40px;
     height: 40px;
@@ -412,7 +412,7 @@ li {
     outline: none;
 }
 
-/*ATK PERSO 2*/
+/*BOUTONS ATK PERSO 2*/
 
 .atk2-norm {
     width: 40px;
@@ -520,7 +520,7 @@ li {
 /*ATTACK FRAMES*/
 
 /*-PERSO1-*/
-.zone-perso1-effects {
+/* .zone-perso1-effects {
     width: 90px;
     height: 180px;
 
@@ -529,16 +529,17 @@ li {
     left: 130px;
     display: flex;
     border-style: none;
-    z-index: 400;
-}
+    z-index: 400; 
+}*/
 
-.zone-perso1-effects img {
+
+/* .zone-perso1-effects img {
     max-height: 100%;
     max-width: 100%;
     flex: auto;
     transform: rotateY(-180deg);
     z-index: 400;
-}
+} */
 
 /*-PERSO2-*/
 .zone-perso2-effects {
