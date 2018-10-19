@@ -108,7 +108,7 @@ function hardAttackStart() {
     changeImg1.src = "images/move/soldat1movatkA.gif";
     changeSizeBtnOnAtk3.style.maxWidth = "37px";
     changeSizeBtnOnAtk3.style.maxHeight = "37px";
-    changeImg2.src = "images/move/elf1movattaked.gif";
+    changeImg2.src = "images/move/elf1fall.gif";
     putEffects2.src = "images/skills/thunderSkill.gif";
 }
 
