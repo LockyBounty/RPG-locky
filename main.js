@@ -29,6 +29,9 @@ hardAttackButton.addEventListener("mousedown", hardAttackStart);
 hardAttackButton.addEventListener("mouseup", hardAttackEnd);
 
 //PROTECT Souris
+const defenseButton = document.querySelector(".atk1-def");
+defenseButton.addEventListener("mousedown", defenseSkillStart);
+defenseButton.addEventListener("mouseup", defenseSkillEnd);
 
 
 let up = document.querySelector("#up");
@@ -74,6 +77,18 @@ function updateCombatLogs(attackName) {
             let afficheAuTop83 = logStats2.appendChild(el83);
             logStats2.insertBefore(afficheAuTop83, logStats2.firstElementChild);
             break;
+        case "def":
+            el4v4 = document.createElement("LI");
+            el4v4.innerHTML = `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}.${Math.floor(d.getMilliseconds() / 10)}] Joueur 1 lance sa defense pour une sec !`;
+            let afficheAuTop4v4 = logStats1.appendChild(el4v4);
+            logStats1.insertBefore(afficheAuTop4v4, logStats1.firstElementChild);
+
+            
+            el87 = document.createElement("LI");
+            el87.innerHTML = `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}.${Math.floor(d.getMilliseconds() / 10)}] Joueur 2 se fait une raison...`;
+            let afficheAuTop87 = logStats2.appendChild(el87);
+            logStats2.insertBefore(afficheAuTop87, logStats2.firstElementChild);
+            break;
 
     }
 
@@ -113,11 +128,11 @@ function mediumAttackEnd() {
 
 // HARD ATTACK 
 function hardAttackStart() {
-    changeImg1.src = "images/move/soldat1movatkA.gif";
+    changeImg1.src = "images/move/soldat1invoke.gif";
     changeSizeBtnOnAtk3.style.maxWidth = "37px";
     changeSizeBtnOnAtk3.style.maxHeight = "37px";
     changeImg2.src = "images/move/elf1fall.gif";
-    putEffects2.src = "images/skills/thunderSkill.gif";
+    putEffects2.src = "images/skills/thunderAtkv2.gif";
 }
 
 function hardAttackEnd() {
@@ -131,10 +146,17 @@ function hardAttackEnd() {
 }
 
 //DEFENSE SKILL
-let defenseSkillStart =()=> {
-
+function defenseSkillStart () {
+    changeImg1.src = "images/move/soldat1invoke.gif";
+    changeSizeBtnOnAtk4.style.maxWidth = "37px";
+    changeSizeBtnOnAtk4.style.maxHeight = "37px";
+    
+    
 }
-let defenseSkillEnd = () => {
+function defenseSkillEnd () {
+    let d = new Date();
+    changeImg1.src = "images/move/soldat1stand.gif";
+    changeSizeBtnOnAtk4.style = null;
 
 }
 
@@ -152,11 +174,7 @@ function presse(event) {
                 hardAttackStart();
                 break;
             case 87:
-                changeImg1.src = "images/move/soldat1movatkA.gif";
-                changeSizeBtnOnAtk4.style.maxWidth = "37px";
-                changeSizeBtnOnAtk4.style.maxHeight = "37px";
-
-                changeImg2.src = "images/move/elf1movattaked.gif";
+                defenseSkillStart();
                 break;
 
 
@@ -180,20 +198,7 @@ function relacheBouton(event) {
             hardAttackEnd();
             break;
         case 87:
-            changeImg1.src = "images/move/soldat1stand.gif";
-            changeSizeBtnOnAtk4.style = null;
-
-
-            el4v4 = document.createElement("LI");
-            el4v4.innerHTML = `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}.${Math.floor(d.getMilliseconds() / 10)}] Joueur 1 lance sa defense pour une sec !`;
-            let afficheAuTop4v4 = logStats1.appendChild(el4v4);
-            logStats1.insertBefore(afficheAuTop4v4, logStats1.firstElementChild);
-
-            changeImg2.src = "images/move/elf1stand.gif";
-            el87 = document.createElement("LI");
-            el87.innerHTML = `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}.${Math.floor(d.getMilliseconds() / 10)}] Joueur 2 se fait une raison...`;
-            let afficheAuTop87 = logStats2.appendChild(el87);
-            logStats2.insertBefore(afficheAuTop87, logStats2.firstElementChild);
+            defenseSkillEnd();
             break;
 
     };

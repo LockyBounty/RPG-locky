@@ -4,7 +4,7 @@
 
 _Locky B._
 
-## Lien vers mon jeu :
+## Link to my game :
 
 [My Game](https://lockybounty.github.io/RPG-locky)
 

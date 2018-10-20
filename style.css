@@ -543,11 +543,11 @@ li {
 
 /*-PERSO2-*/
 .zone-perso2-effects {
-    width: 90px;
-    height: 180px;
+    width: 120px;
+    height: 350px;
     /*background-color:blue;*/
     position: relative;
-    top: 120px;
+    top: -30px;
     left: 480px;
     display: flex;
     border-style: none;
@@ -558,7 +558,7 @@ li {
     
 
     max-width: 100%;
-    flex: auto;
+    
     z-index: 400;
 }
 
