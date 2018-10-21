@@ -146,9 +146,8 @@ li {
     z-index: -1;
     transform: skewX(-15deg);
 }
-
-.perso1-vie {
-    background-color: limegreen;
+.perso1-vieSub {
+    background-color: brown;
     border-style: solid;
     border-color: black;
     border-width: 2px;
@@ -158,9 +157,32 @@ li {
     left: 104px;
     top: 33px;
     color: white;
-    align-content: center;
     text-align: center;
+    align-content: center;
 }
+.perso1-vie {
+    background-color: limegreen;
+    /*border-style: solid;
+    border-color: black;
+    border-width: 2px;*/
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: width .2s linear;
+    display: flex;
+    z-index: 200;
+    text-align: center;
+    align-content: center;
+    justify-content:center;
+}
+.hp-p1 {
+    display: flex;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+
 
 .perso1-stamina {
     background-color: gold;
@@ -219,10 +241,12 @@ li {
     bottom: 0;
     z-index: -1;
     transform: skewX(15deg);
+
 }
 
-.perso2-vie {
-    background-color: limegreen;
+
+.perso2-vieSub {
+    background-color: brown;
     border-style: solid;
     border-color: black;
     border-width: 2px;
@@ -234,6 +258,26 @@ li {
     color: white;
     text-align: center;
     align-content: center;
+    display: flex;
+    justify-content:flex-end; /*Met le début de la barre de vie de dedans vers le bord droit*/
+}
+.perso2-vie {
+    background-color: limegreen;
+    /*border-style: solid;
+    border-color: black;
+    border-width: 2px;*/
+    height: 100%;
+    width: 100%;
+    transition: width .2s linear;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    z-index: 200;
+}
+#pv2 {
+    position: relative;
+    text-align: center;
+    z-index: 300;
 }
 
 .perso2-stamina {
@@ -297,8 +341,6 @@ li {
 }
 
 .zone-perso2 img {
-    size: 5%;
-
     max-width: 100%;
     flex: auto;
 }
@@ -520,49 +562,63 @@ li {
 /*ATTACK FRAMES*/
 
 /*-PERSO1-*/
-/* .zone-perso1-effects {
-    width: 90px;
-    height: 180px;
-
-    position: absolute;
-    top: 120px;
-    left: 130px;
+.zone-perso1-effects {
+    width: 150px;
+    height: 150px;
+   /*background-color:blue;*/
+    opacity:0.99;
+    position: relative;
+    top: 170px;
+    left: 80px;
     display: flex;
     border-style: none;
-    z-index: 400; 
-}*/
+    z-index: -10;
+}
 
 
-/* .zone-perso1-effects img {
-    max-height: 100%;
+/.zone-perso1-effects img {
+    
     max-width: 100%;
-    flex: auto;
-    transform: rotateY(-180deg);
-    z-index: 400;
-} */
+    z-index: -1;
+} 
 
 /*-PERSO2-*/
 .zone-perso2-effects {
     width: 120px;
     height: 350px;
-    /*background-color:blue;*/
+    background-color:blue;
+    opacity: 0.5;
     position: relative;
-    top: -30px;
-    left: 480px;
+    top: -160px;
+    left: 470px;
     display: flex;
     border-style: none;
     z-index: 400;
 }
 
 .zone-perso2-effects img {
-    
-
     max-width: 100%;
     
     z-index: 400;
 }
 
+.zone-perso2-1-effects {
+    width: 120px;
+    height: 350px;
+    background-color: blue;
+    opacity: 0.5;
+    position: relative;
+    top: -160px;
+    left: 470px;
+    display: flex;
+    border-style: none;
+    z-index: 400;
+}
 
+    .zone-perso2-1-effects img {
+        max-width: 100%;
+        z-index: 400;
+    }
 
 
 /*ZONE DE LOG J1*/
