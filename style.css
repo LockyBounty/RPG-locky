@@ -26,6 +26,7 @@ header {
     }
   }
 
+
 li {
     list-style-type:none;
 }
@@ -565,29 +566,25 @@ li {
 .zone-perso1-effects {
     width: 150px;
     height: 150px;
-   /*background-color:blue;*/
-    opacity:0.99;
+    /*background-color:blue;*/
+    opacity: 0.6;
     position: relative;
     top: 170px;
     left: 80px;
     display: flex;
     border-style: none;
-    z-index: -10;
+    z-index: 10;
 }
 
 
-/.zone-perso1-effects img {
-    
-    max-width: 100%;
-    z-index: -1;
-} 
+
 
 /*-PERSO2-*/
 .zone-perso2-effects {
     width: 120px;
     height: 350px;
-    background-color:blue;
-    opacity: 0.5;
+    /*background-color:blue;
+    opacity: 0.5;*/
     position: relative;
     top: -160px;
     left: 470px;
@@ -604,12 +601,12 @@ li {
 
 .zone-perso2-1-effects {
     width: 120px;
-    height: 350px;
-    background-color: blue;
-    opacity: 0.5;
-    position: relative;
-    top: -160px;
-    left: 470px;
+    height: 130px;
+    /*background-color: yellow;
+    opacity: 0.5;*/
+    position: fixed; /*like absolute but with some advantages... */
+    top: 290px;
+    left: 570px;
     display: flex;
     border-style: none;
     z-index: 400;
@@ -619,6 +616,152 @@ li {
         max-width: 100%;
         z-index: 400;
     }
+
+
+
+/*ZONE DE MENU*/
+
+.heros {
+    width: 40px;
+    height: 40px;
+    /*background-color: yellow;
+    opacity: 0.5;*/
+    background: url(images/background/SelectChar.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gold;
+    position: fixed;
+    top: 150px;
+    left: 5px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+}
+.heros-menubar {
+    width: 60px;
+    height: 22px;
+    position: absolute;
+    left: 25px;
+    top: 160px;
+    color: white;
+    align-content: center;
+    text-align:  end;
+    z-index: 1;
+    font-size: 13px;
+}
+
+    .heros-menubar:before {
+        content: " ";
+        background: black;
+        border-style: solid;
+        border-width: 2px;
+        border-color: gold;
+        position: absolute;
+        top: 0;
+        left: -10px;
+        right: -10px;
+        bottom: 0;
+        z-index: -1;
+        transform: skewX(-15deg);
+    }
+
+.infos {
+    width: 40px;
+    height: 40px;
+    /*background-color: yellow;
+    opacity: 0.5;*/
+    background: url(images/background/Info.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gold;
+    position: fixed;
+    top: 200px;
+    left: 5px;
+    z-index: 100;
+}
+.infos-menubar {
+    width: 60px;
+    height: 22px;
+    position: absolute;
+    left: 25px;
+    top: 210px;
+    color: white;
+    align-content: center;
+    text-align: end;
+    z-index: 1;
+    font-size: 13px;
+}
+
+    .infos-menubar:before {
+        content: " ";
+        background: black;
+        border-style: solid;
+        border-width: 2px;
+        border-color: gold;
+        position: absolute;
+        top: 0;
+        left: -10px;
+        right: -10px;
+        bottom: 0;
+        z-index: -1;
+        transform: skewX(-15deg);
+    }
+
+.shop {
+    width: 40px;
+    height: 40px;
+    /*background-color: yellow;
+    opacity: 0.5;*/
+    background: url(images/background/Shop.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gold;
+    position: fixed;
+    top: 250px;
+    left: 5px;
+    z-index: 100;
+}
+
+.shop-menubar {
+    width: 60px;
+    height: 22px;
+    position: absolute;
+    left: 25px;
+    top: 260px;
+    color: white;
+    align-content: center;
+    text-align: end;
+    z-index: 1;
+    font-size: 13px;
+    justify-content: center;
+}
+
+    .shop-menubar:before {
+        content: " ";
+        background: black;
+        border-style: solid;
+        border-width: 2px;
+        border-color: gold;
+        position: absolute;
+        top: 0;
+        left: -10px;
+        right: -10px;
+        bottom: 0;
+        z-index: -1;
+        transform: skewX(-15deg);
+    }
+
 
 
 /*ZONE DE LOG J1*/

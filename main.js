@@ -1,3 +1,17 @@
+// DECLARATION DE CLASSE ET OBJETS
+
+class Heros {
+    constructor(hauteur, largeur) {
+        this.hauteur = hauteur;
+        this.largeur = largeur;
+    }
+}
+
+
+
+
+
+
 // DECLARATION DE VARIABLES
 
 let attack1 = document.querySelector(".btn-atk1-norm");
@@ -23,7 +37,7 @@ let changeZone1 = document.querySelector(".zone-perso1");
 
 let putEffects1 = document.querySelector("#zone1eff");
 let putEffects2 = document.querySelector("#zone2eff");
-
+let putEffects2v2 = document.querySelector("#zone2-1eff");
 
 
 let lifePoints = 100;
@@ -32,8 +46,11 @@ let lifePoints = 100;
     return (chosen1[attack] $ 100)/data_value);--> chosen 1 et data_value a faire
 }*/
 let sonAtkA = document.getElementById("soundAtk1"); 
+let sonAtkB = document.getElementById("soundAtk2"); 
+let sonAtkC = document.getElementById("soundAtk3"); 
+let sonAtkD = document.getElementById("soundAtk4"); 
 
-
+document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
 
 
 
@@ -106,7 +123,7 @@ function updateCombatLogs(attackName) {
             break;
         case "def":
             el4v4 = document.createElement("LI");
-            el4v4.innerHTML = `[${dateTimeFormattedInFrench}] Joueur 1 lance sa defense pour une sec !`;
+            el4v4.innerHTML = `[${dateTimeFormattedInFrench}] Joueur 1 lance sa barriere de protection !`;
             let afficheAuTop4v4 = logStats1.appendChild(el4v4);
             logStats1.insertBefore(afficheAuTop4v4, logStats1.firstElementChild);
 
@@ -130,6 +147,33 @@ function pauseAudio1() {
     sonAtkA.pause();
    // sonAtkA.currentTime = 0.9;
 }
+
+function playAudio2() {
+    sonAtkB.play();
+    sonAtkB.currentTime = 0.07;
+}
+function pauseAudio2() {
+    sonAtkB.pause();
+    // sonAtkA.currentTime = 0.9;
+}
+
+function playAudio3() {
+    sonAtkC.play();
+    sonAtkC.currentTime = 0.07;
+}
+function pauseAudio3() {
+    sonAtkC.pause();
+    // sonAtkA.currentTime = 0.9;
+}
+function playAudio4() {
+    sonAtkD.play();
+    sonAtkD.currentTime = 0.07;
+}
+function pauseAudio4() {
+    sonAtkD.pause();
+    // sonAtkA.currentTime = 0.9;
+}
+
 
 function basicAttackStart() {
     
@@ -156,17 +200,17 @@ function basicAttackEnd() {
     updateCombatLogs("basic");
     
     pauseAudio1();
-    affBarVie2();
+    
     /*si on veut reset le son, mais ca donne un mauvais rendu */
     if (lifePoints === 0) {
         changeImg1.src = "images/move/soldat1stand.gif";
         putEffects1.removeAttribute("src");
         changeImg2.src = "images/move/elf1dead.gif";
         setTimeout(onceDead,500);
-        console.log(lifePoints);
+        
         affBarVie2();
     }
-    console.log(lifePoints);
+    
     affBarVie2();
 } 
 
@@ -176,7 +220,9 @@ function mediumAttackStart() {
     changeImg1.src = "images/move/soldat1movatkA.gif";
     changeSizeBtnOnAtk2.style.maxWidth = "37px";
     changeSizeBtnOnAtk2.style.maxHeight = "37px";
+    putEffects2v2.src = "images/skills/atk-moy1.gif";
     changeImg2.src = "images/move/elf1movattaked.gif";
+    playAudio2();
 
     if (lifePoints > 10) {
         lifePoints -= 10;
@@ -191,15 +237,19 @@ function mediumAttackStart() {
     
 }
 function mediumAttackEnd() {
-    let d = new Date;
+    
     changeImg1.src = "images/move/soldat1stand.gif";
     changeSizeBtnOnAtk2.style = null;
     changeImg2.src = "images/move/elf1stand.gif";
     updateCombatLogs("medium");
+    putEffects2v2.removeAttribute("src");
     document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
+    pauseAudio2();
+
     if (lifePoints === 0) {
         changeImg1.src = "images/move/soldat1stand.gif";
         putEffects1.removeAttribute("src");
+        putEffects2v2.removeAttribute("src");
         changeImg2.src = "images/move/elf1dead.gif";
         setTimeout(onceDead, 500);
         document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
@@ -215,7 +265,7 @@ function hardAttackStart() {
 
     changeSizeBtnOnAtk3.style.maxWidth = "37px";
     changeSizeBtnOnAtk3.style.maxHeight = "37px";
-
+    playAudio3();
     if (lifePoints>35) {
         lifePoints -= 35;
         attackOnHP2.style.width = `${lifePoints}%`;
@@ -231,7 +281,7 @@ function hardAttackStart() {
 }
 
 function hardAttackEnd() {
-    let d = new Date();
+    
     changeImg1.src = "images/move/soldat1stand.gif";
     putEffects1.removeAttribute("src");
     changeSizeBtnOnAtk3.style = null;
@@ -239,6 +289,7 @@ function hardAttackEnd() {
     putEffects2.removeAttribute("src");
     updateCombatLogs("hard");
     document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
+    pauseAudio3();
 
     if (lifePoints === 0) {
         changeImg1.src = "images/move/soldat1stand.gif";
@@ -254,30 +305,32 @@ function hardAttackEnd() {
 //DEFENSE SKILL
 function defenseSkillStart () {
     changeImg1.src = "images/move/soldat1invoke.gif";
-    /*changeZone1.src = "shield-p1.gif";*/
+    putEffects1.src = "images/skills/shield-p2.gif";
     
     changeSizeBtnOnAtk4.style.maxWidth = "37px";
     changeSizeBtnOnAtk4.style.maxHeight = "37px";
-    
+    playAudio4();
     
 }
 function defenseSkillEnd () {
-    let d = new Date();
+    
     changeImg1.src = "images/move/soldat1stand.gif";
+
+    putEffects1.removeAttribute("src");
     changeSizeBtnOnAtk4.style = null;
     
     updateCombatLogs("def");
-
+    pauseAudio4();
 }
 
 // DEAD + REZ
 
 function onceDead() {
-    let rez = confirm("Bravo, vous avez vaincu l'ennemi !\nVoulez-vous le soigner ?");
+    let rez = confirm("Excellent, vous avez vaincu l'ennemi !\nVoulez-vous le soigner ?");
     if (rez === true) {
-        lifePoints = 100;
+        lifePoints += 100;
         attackOnHP2.style.width = `${lifePoints}%`;
-        
+        document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
         changeImg2.src = "images/move/elf1stand.gif";
     }
     

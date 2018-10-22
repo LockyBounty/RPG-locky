@@ -22,43 +22,68 @@
         <div class="perso2"><img id="img2" src="images/elf1reverse.png" /></div>
         <div class="perso2-nom">Joueur 2</div>
 
-        <div class="perso2-vieSub">        
-            <div class="perso2-vie"><div id="pv2" ></div></div>
+        <div class="perso2-vieSub">
+            <div class="perso2-vie"><div id="pv2"></div></div>
         </div>
         <div class="perso2-stamina">100</div>
         <div class="perso2-exp"><img id="lvl-star2" src="images/Golden_Star.png" /><span id="niv-2">1</span></div>
     </header>
+    <!--ZONE DE COMBATS-->
     <div class="zone-combat">
+
         <div class="atk1-norm"><button type="button" class="btn-atk1-norm"></button></div>
         <audio id="soundAtk1">
             <source src="audio/Blow1.ogg" type="audio/ogg">
-
         </audio>
         <div class="atk1-moy"><button type="button" class="btn-atk1-moy"></button></div>
+        <audio id="soundAtk2">
+            <source src="audio/Attack3.ogg" type="audio/ogg">
+        </audio>
         <div class="atk1-fort"><button type="button" class="btn-atk1-fort"></button></div>
+        <audio id="soundAtk3">
+            <source src="audio/Thunder9.ogg" type="audio/ogg">
+        </audio>
         <div class="atk1-def"><button type="button" class="btn-atk1-def"></button></div>
+        <audio id="soundAtk4">
+            <source src="audio/Up2.ogg" type="audio/ogg">
+        </audio>
         <div class="atk2-norm"><button type="button" class="btn-atk2-norm"></button></div>
         <div class="atk2-moy"><button type="button" class="btn-atk2-moy"></button></div>
         <div class="atk2-fort"><button type="button" class="btn-atk2-fort"></button></div>
         <div class="atk2-def"><button type="button" class="btn-atk2-def"></button></div>
-        
+
+        <!--ZONE DES PERSONNAGES-->
         <div class="zone-perso1">
             <img id="zone1norm" src="images/move/soldat1stand.gif" />
-            
         </div>
         <div class="zone-perso2"><img id="zone2norm" src="images/move/elf1stand.gif" /></div>
 
+        <!--ZONE DES EFFETS-->
         <div class="zone-perso1-effects"><img id="zone1eff" /></div>
-        <div class="zone-perso2-effects"><img id="zone2eff"/></div>
+        <div class="zone-perso2-effects"><img id="zone2eff" /></div>
+        <div class="zone-perso2-1-effects"><img id="zone2-1eff" /></div>
 
-        
+
     </div>
-
+    <!--ZONE DE LOGS-->
     <div class="titre-log1">Joueur 1</div>
     <div class="log1"></div>
     <div class="titre-log2">Joueur 2</div>
-    <div class="log2"></div>
+    <div class="log2">
+        <audio controls autoplay loop id="soundBGM">
+            <source src="audio/Battle3.ogg" type="audio/ogg">
+        </audio>
+    </div>
 
+    <!--ZONE DE MENU-->
+    <div class="heros"></div>
+    <div class="heros-menubar">Heros</div>
+    <div class="infos"></div>
+    <div class="infos-menubar">Infos</div>
+    <div class="shop"></div>
+    <div class="shop-menubar">Shop</div>
+
+    
     <script src="main.js"></script>
 </body>
 </html>
