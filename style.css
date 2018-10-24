@@ -16,19 +16,26 @@ header {
 }
 
 @keyframes glowing {
-    0% { box-shadow: 0 0 -10px lightgray; }
-    40% { box-shadow: 3px 0px 10px white; }
+    0% {
+        box-shadow: 0 0 -10px lightgray;
+    }
+
+    40% {
+        box-shadow: 3px 0px 10px white;
+    }
+
     60% {
         box-shadow: 0 0 10px #4494C7;
     }
+
     100% {
         box-shadow: 5px 0px -10px white;
     }
-  }
+}
 
 
 li {
-    list-style-type:none;
+    list-style-type: none;
 }
 
 .perso1 {
@@ -147,6 +154,7 @@ li {
     z-index: -1;
     transform: skewX(-15deg);
 }
+
 .perso1-vieSub {
     background-color: brown;
     border-style: solid;
@@ -161,6 +169,7 @@ li {
     text-align: center;
     align-content: center;
 }
+
 .perso1-vie {
     background-color: limegreen;
     /*border-style: solid;
@@ -174,8 +183,9 @@ li {
     z-index: 200;
     text-align: center;
     align-content: center;
-    justify-content:center;
+    justify-content: center;
 }
+
 .hp-p1 {
     display: flex;
     text-align: center;
@@ -260,8 +270,10 @@ li {
     text-align: center;
     align-content: center;
     display: flex;
-    justify-content:flex-end; /*Met le début de la barre de vie de dedans vers le bord droit*/
+    justify-content: flex-end;
+    /*Met le debut de la barre de vie de dedans vers le bord droit*/
 }
+
 .perso2-vie {
     background-color: limegreen;
     /*border-style: solid;
@@ -275,6 +287,7 @@ li {
     align-content: center;
     z-index: 200;
 }
+
 #pv2 {
     position: relative;
     text-align: center;
@@ -297,7 +310,7 @@ li {
     z-index: -1;
 }
 
-/*ZONE DE COMBAT*/
+/*//////////// ZONE DE COMBAT ////////////*/
 
 .zone-combat {
     /*background-color: navajowhite;*/
@@ -347,7 +360,7 @@ li {
 }
 
 
-/*BOUTONS ATK PERSO 1*/
+/*//////////// BOUTONS ATK PERSO 1 ////////////*/
 .atk1-norm {
     width: 40px;
     height: 40px;
@@ -362,7 +375,7 @@ li {
 }
 
 .btn-atk1-norm {
-    
+
     background-image: url(images/atk_buttons/fist.png);
 
     background-size: contain;
@@ -373,8 +386,10 @@ li {
     max-height: 100%;
     flex: auto;
     animation: glowing 1500ms infinite;
-    outline: none;/*remove square box after pushing the button*/
+    outline: none;
+    /*remove square box after pushing the button*/
 }
+
 .atk1-moy {
     width: 40px;
     height: 40px;
@@ -388,8 +403,8 @@ li {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-.btn-atk1-moy{
-    
+.btn-atk1-moy {
+
     background-image: url(images/atk_buttons/sword.png);
 
     background-size: contain;
@@ -415,7 +430,7 @@ li {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-.btn-atk1-fort{
+.btn-atk1-fort {
     background-image: url(images/atk_buttons/magic.png);
 
     background-size: contain;
@@ -441,8 +456,8 @@ li {
     box-shadow: 1px 0px 1px 0px #0ff;
 }
 
-.btn-atk1-def{
-    
+.btn-atk1-def {
+
     background-image: url(images/atk_buttons/shield.png);
 
     background-size: contain;
@@ -455,7 +470,7 @@ li {
     outline: none;
 }
 
-/*BOUTONS ATK PERSO 2*/
+/*//////////// BOUTONS ATK PERSO 2 ////////////*/
 
 .atk2-norm {
     width: 40px;
@@ -560,9 +575,10 @@ li {
     animation: glowing 1500ms infinite;
     outline: none;
 }
-/*ATTACK FRAMES*/
 
-/*-PERSO1-*/
+/*//////////// ATTACK FRAMES ////////////*/
+
+/*//////////// -PERSO1- ////////////*/
 .zone-perso1-effects {
     width: 150px;
     height: 150px;
@@ -579,7 +595,7 @@ li {
 
 
 
-/*-PERSO2-*/
+/*//////////// -PERSO2- ////////////*/
 .zone-perso2-effects {
     width: 120px;
     height: 350px;
@@ -595,7 +611,7 @@ li {
 
 .zone-perso2-effects img {
     max-width: 100%;
-    
+
     z-index: 400;
 }
 
@@ -604,7 +620,8 @@ li {
     height: 130px;
     /*background-color: yellow;
     opacity: 0.5;*/
-    position: fixed; /*like absolute but with some advantages... */
+    position: fixed;
+    /*like absolute but with some advantages... */
     top: 290px;
     left: 570px;
     display: flex;
@@ -612,14 +629,14 @@ li {
     z-index: 400;
 }
 
-    .zone-perso2-1-effects img {
-        max-width: 100%;
-        z-index: 400;
-    }
+.zone-perso2-1-effects img {
+    max-width: 100%;
+    z-index: 400;
+}
 
 
 
-/*ZONE DE MENU*/
+/*//////////// ZONE DE MENU ////////////*/
 
 .heros {
     width: 40px;
@@ -642,6 +659,7 @@ li {
     text-align: center;
     z-index: 100;
 }
+
 .heros-menubar {
     width: 60px;
     height: 22px;
@@ -650,25 +668,25 @@ li {
     top: 160px;
     color: white;
     align-content: center;
-    text-align:  end;
+    text-align: end;
     z-index: 1;
     font-size: 13px;
 }
 
-    .heros-menubar:before {
-        content: " ";
-        background: black;
-        border-style: solid;
-        border-width: 2px;
-        border-color: gold;
-        position: absolute;
-        top: 0;
-        left: -10px;
-        right: -10px;
-        bottom: 0;
-        z-index: -1;
-        transform: skewX(-15deg);
-    }
+.heros-menubar:before {
+    content: " ";
+    background: black;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gold;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    z-index: -1;
+    transform: skewX(-15deg);
+}
 
 .infos {
     width: 40px;
@@ -687,6 +705,7 @@ li {
     left: 5px;
     z-index: 100;
 }
+
 .infos-menubar {
     width: 60px;
     height: 22px;
@@ -700,20 +719,20 @@ li {
     font-size: 13px;
 }
 
-    .infos-menubar:before {
-        content: " ";
-        background: black;
-        border-style: solid;
-        border-width: 2px;
-        border-color: gold;
-        position: absolute;
-        top: 0;
-        left: -10px;
-        right: -10px;
-        bottom: 0;
-        z-index: -1;
-        transform: skewX(-15deg);
-    }
+.infos-menubar:before {
+    content: " ";
+    background: black;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gold;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    z-index: -1;
+    transform: skewX(-15deg);
+}
 
 .shop {
     width: 40px;
@@ -747,24 +766,24 @@ li {
     justify-content: center;
 }
 
-    .shop-menubar:before {
-        content: " ";
-        background: black;
-        border-style: solid;
-        border-width: 2px;
-        border-color: gold;
-        position: absolute;
-        top: 0;
-        left: -10px;
-        right: -10px;
-        bottom: 0;
-        z-index: -1;
-        transform: skewX(-15deg);
-    }
+.shop-menubar:before {
+    content: " ";
+    background: black;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gold;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    z-index: -1;
+    transform: skewX(-15deg);
+}
 
 
 
-/*ZONE DE LOG J1*/
+/*//////////// ZONE DE LOG J1 ////////////*/
 
 .titre-log1 {
     width: 120px;
@@ -800,7 +819,7 @@ li {
     overflow-x: hidden;
 }
 
-/*ZONE DE LOG J2*/
+/*//////////// ZONE DE LOG J2 ////////////*/
 
 .titre-log2 {
     width: 120px;
@@ -835,4 +854,130 @@ li {
     z-index: 250;
     overflow: scroll;
     overflow-x: hidden;
+}
+
+/*//////////// INFO SECTION ////////////*/
+
+@keyframes poppin {
+
+    /* 0% { width: 0%; heigth: 0%; }
+    
+    100% {
+         heigth: 100%;
+    } */
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+ .heros-aff {
+    
+
+    width: 300px;
+    height: 400px;
+    background: url(images/background/mountain-bg.jpg);
+    
+    background-size: cover;
+    border: 3px solid goldenrod;
+    border-radius: 15px;
+    box-shadow: 1px 1px gray;
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+    align-items: center;
+    left: 50px;
+    top:50px;
+    flex-direction: column;
+} 
+.flecheSelect {
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    border-radius: 10%;
+    margin:2%;
+
+    display:flex;
+}
+#selectionMoins img{
+    
+    max-width: 100%;
+}
+#selectionPlus img{
+    transform: rotateY(180deg);
+    max-width: 100%;
+}
+
+.heroSelect {
+    width: 155px;
+    height: 155px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    border-radius: 10%;
+    margin:2%;
+
+    display:flex;
+}
+.heros-aff img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid gray;
+}
+.heros-row1{
+    flex:1;
+    display:flex;
+    margin:auto;
+    align-items: center;
+}
+.heros-row2{
+    display: flex; /*Ne jamais oublier sinon marche pas*/
+    flex:1;
+    flex-direction: row; /*row ok*/
+    justify-content: space-between;
+    align-items: center;
+    
+    margin:3%;
+}
+.heros-row3{
+    
+    flex:1;
+    display:flex;
+    margin:auto;
+    align-items: center;
+}
+
+.infos-aff {
+    /* animation: poppin .3s linear; */
+    opacity: 0;
+    width: 300px;
+    height: 400px;
+    background: rgba(29, 21, 182, 0.9);
+    border: 3px solid goldenrod;
+    border-radius: 5px;
+    box-shadow: 1px 1px gray;
+    position: fixed;
+    z-index: 1000;
+    left: 50px;
+    top:50px;
+}
+
+.shop-aff {
+    /* animation: poppin .3s linear; */
+    opacity: 0;
+    width: 300px;
+    height: 400px;
+    background: rgba(29, 21, 182, 0.9);
+    border: 3px solid gold;
+    border-radius: 5px;
+    box-shadow: 1px 1px gray;
+    position: fixed;
+    z-index: 1000;
+    left: 50px;
+    top:50px;
 }

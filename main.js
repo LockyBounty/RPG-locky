@@ -52,11 +52,13 @@ let sonAtkD = document.getElementById("soundAtk4");
 
 document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
 
-
-
+let charArray = ["images/soldat1.png","images/mago1.png","images/elf1.png","images/ange1.png","images/fighter1.png","images/aleatoire.png"];
+let selectPlus = document.querySelector("#selectionPlus");
+let selectMoins = document.querySelector("#selectionMoins");
 
 
 // BASIC Souris
+
 const basicAttackButton = document.querySelector(".atk1-norm");
 basicAttackButton.addEventListener("mousedown", basicAttackStart);
 basicAttackButton.addEventListener("mouseup", basicAttackEnd);
@@ -346,6 +348,34 @@ return document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
 }
 
 
+// PLACER IMAGES SELECTION BOX
+
+let cptGlobal =0;
+
+// let placerImages =() => {
+//     for (i=0; i< charArray.length;i++){
+        
+//         let imagesSelect =document.querySelector(`#pers-${i+1}`);
+//         imagesSelect.src = `${charArray[i]}`;
+//         console.log(charArray[i]);
+//     }
+// }
+let placerImagesPlus =() => {
+    
+        
+        let imagesSelect =document.querySelector(`#pers-${i+1}`);
+        imagesSelect.src = `${charArray[i]}`;
+        console.log(charArray[i]);
+    
+}
+
+
+
+
+
+// APPUYER TOUCHES
+
+
 function presse(event) {
     /*console.log(event.keyCode);*/
     if (event.keyCode != null) {
@@ -395,6 +425,7 @@ function relacheBouton(event) {
 };
 
 
+// placerImages();
 
 
 document.body.addEventListener("keydown", presse);

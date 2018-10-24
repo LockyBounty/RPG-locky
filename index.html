@@ -1,20 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Locky's Arena</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-   
+
 </head>
+
 <body>
     <header>
         <div class="perso1"><img id="img1" src="images/soldat1.png" /></div>
         <div class="perso1-nom">Joueur 1</div>
 
         <div class="perso1-vieSub">
-            <div class="perso1-vie"><div id="pv1">100%</div></div>
+            <div class="perso1-vie">
+                <div id="pv1">100%</div>
+            </div>
         </div>
         <div class="perso1-stamina">100</div>
         <div class="perso1-exp"><img id="lvl-star1" src="images/Golden_Star.png" /><span id="niv-1">1</span></div>
@@ -23,7 +27,9 @@
         <div class="perso2-nom">Joueur 2</div>
 
         <div class="perso2-vieSub">
-            <div class="perso2-vie"><div id="pv2"></div></div>
+            <div class="perso2-vie">
+                <div id="pv2"></div>
+            </div>
         </div>
         <div class="perso2-stamina">100</div>
         <div class="perso2-exp"><img id="lvl-star2" src="images/Golden_Star.png" /><span id="niv-2">1</span></div>
@@ -74,12 +80,34 @@
     <!--ZONE DE MENU-->
     <div class="heros"></div>
     <div class="heros-menubar">Heros</div>
+    <div class="heros-aff">
+        <div class="heros-row1">
+            <legend>Select your character</legend>
+        </div>
+        <div class="heros-row2">
+            <div class="flecheSelect" id="selectionMoins"><img src="images/background/arrow1white.png" /></div>
+
+            <div class="heroSelect"><img id="perso-select" src="" /></div>
+            <div class="flecheSelect" id="selectionPlus"><img src="images/background/arrow1white.png" /></div>
+        </div>
+        <div class="heros-row3">
+            <div>Name / fonction</div>
+        </div>
+        <!-- <div><img id="pers-2" src="" /></div>
+        <div><img id="pers-3" src="" /></div>
+        <div><img id="pers-4" src="" /></div>
+        <div><img id="pers-5" src="" /></div>
+        <div><img id="pers-6" src="" /></div> -->
+    </div>
     <div class="infos"></div>
     <div class="infos-menubar">Infos</div>
+    <div class="infos-aff"></div>
     <div class="shop"></div>
     <div class="shop-menubar">Shop</div>
+    <div class="shop-aff"></div>
 
-    
+
     <script src="main.js"></script>
 </body>
+
 </html>
