@@ -1,7 +1,14 @@
+@font-face {
+    font-family: "Chakra";
+    src: url("fonts/ChakraPetch-Medium.ttf") format('truetype');
+    src: url("fonts/ChakraPetch-Bold.ttf") format('truetype');
+}
+    
 body {
     background-color: green;
     width: 100%;
     height: 100%;
+    font-family: 'Chakra', sans-serif;
 }
 
 header {
@@ -138,6 +145,7 @@ li {
     align-content: center;
     text-align: center;
     z-index: 1;
+    
 }
 
 .perso1-nom:before {
@@ -153,6 +161,7 @@ li {
     bottom: 0;
     z-index: -1;
     transform: skewX(-15deg);
+    
 }
 
 .perso1-vieSub {
@@ -168,6 +177,7 @@ li {
     color: white;
     text-align: center;
     align-content: center;
+    display: flex;
 }
 
 .perso1-vie {
@@ -184,6 +194,7 @@ li {
     text-align: center;
     align-content: center;
     justify-content: center;
+    display: flex;
 }
 
 .hp-p1 {
@@ -191,6 +202,7 @@ li {
     text-align: center;
     align-content: center;
     justify-content: center;
+    display: flex;
 }
 
 
@@ -206,9 +218,10 @@ li {
     left: 104px;
     top: 60px;
     color: white;
-    text-align: center;
+    justify-content: center;
     align-content: center;
     z-index: -1;
+    display: flex;
 }
 
 
@@ -272,6 +285,7 @@ li {
     display: flex;
     justify-content: flex-end;
     /*Met le debut de la barre de vie de dedans vers le bord droit*/
+    display: flex;
 }
 
 .perso2-vie {
@@ -286,12 +300,14 @@ li {
     justify-content: center;
     align-content: center;
     z-index: 200;
+    display: flex;
 }
 
 #pv2 {
     position: relative;
     text-align: center;
     z-index: 300;
+    display: flex;
 }
 
 .perso2-stamina {
@@ -305,9 +321,10 @@ li {
     right: 104px;
     top: 60px;
     color: white;
-    text-align: center;
+    justify-content: center;
     align-content: center;
     z-index: -1;
+    display: flex;
 }
 
 /*//////////// ZONE DE COMBAT ////////////*/
@@ -472,7 +489,7 @@ li {
 
 /*//////////// BOUTONS ATK PERSO 2 ////////////*/
 
-.atk2-norm {
+/* .atk2-norm {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -574,7 +591,7 @@ li {
     flex: auto;
     animation: glowing 1500ms infinite;
     outline: none;
-}
+} */
 
 /*//////////// ATTACK FRAMES ////////////*/
 
@@ -860,24 +877,18 @@ li {
 
 @keyframes poppin {
 
-    /* 0% { width: 0%; heigth: 0%; }
+     0% { width: 0%; heigth: 0%; }
     
     100% {
          heigth: 100%;
-    } */
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    } 
 }
 
 .heros-aff {
+    animation: poppin .1s linear;
     width: 300px;
     height: 400px;
-    background: url(images/background/mountain-bg.jpg);
+    background: url(images/background/moving-bg.gif);
     background-size: cover;
     border: 3px solid goldenrod;
     border-radius: 15px;
@@ -889,7 +900,8 @@ li {
     left: 50px;
     top: 50px;
     flex-direction: column;
-    color: blue;
+    color: white;
+    text-shadow: 2px 3px 1px rgb(174, 34, 192); /*Pour la bordure du texte*/
 }
 .flecheSelect {
     width: 40px;
@@ -961,8 +973,9 @@ li {
 }
 
 .infos-aff {
-    /* animation: poppin .3s linear; */
-    opacity: 0;
+    
+    animation: poppin .1s linear;
+    opacity: 1;
     width: 300px;
     height: 400px;
     background: rgba(29, 21, 182, 0.9);
@@ -970,14 +983,27 @@ li {
     border-radius: 5px;
     box-shadow: 1px 1px gray;
     position: fixed;
-    z-index: 400;
+    
     left: 50px;
     top:50px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.infos-aff div {
+    display: flex;
+    justify-content: left;
+    width: 80%;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 2px;
+
 }
 
 .shop-aff {
-    /* animation: poppin .3s linear; */
-    opacity: 0;
+    animation: poppin .1s linear;
+    opacity: 1;
     width: 300px;
     height: 400px;
     background: rgba(29, 21, 182, 0.9);
@@ -985,7 +1011,7 @@ li {
     border-radius: 5px;
     box-shadow: 1px 1px gray;
     position: fixed;
-    z-index: 450;
+    
     left: 50px;
     top:50px;
 }

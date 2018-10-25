@@ -1,11 +1,26 @@
 // DECLARATION DE CLASSE ET OBJETS
 
-class Heros {
-    constructor(hauteur, largeur) {
-        this.hauteur = hauteur;
-        this.largeur = largeur;
+class Hero {
+    constructor(name, job, weapon) {
+        this.name = name;
+        this.job = job;
+        this.weapon = weapon;
+        this.lifeP = 100;
+        this.attackP = 15;
+        this.defenceP = 30;
+        this.lvl = 1;
+        this.expP = 0;
     }
 }
+
+
+let hero1 = new Hero("Jeanne", "Chevalière", "Claymore");
+let hero2 = new Hero("Catherine", "Pyromancienne", "Pyro-Spiro");
+let hero3 = new Hero("Eleanor", "Prêtresse", "Natura");
+let hero4 = new Hero("Anna", "Mercenaire", "Tomahawk");
+let hero5 = new Hero("Galathe", "Combattante", "Poings-de-fer");
+let hero6 = new Hero("Aleatoire", "Aleatoire", "Aleatoire");
+let hero = [hero1, hero2, hero3, hero4, hero5, hero6];
 
 
 
@@ -45,19 +60,25 @@ let lifePoints = 100;
 /*function calculPourcentage() {
     return (chosen1[attack] $ 100)/data_value);--> chosen 1 et data_value a faire
 }*/
-let sonAtkA = document.getElementById("soundAtk1"); 
-let sonAtkB = document.getElementById("soundAtk2"); 
-let sonAtkC = document.getElementById("soundAtk3"); 
-let sonAtkD = document.getElementById("soundAtk4"); 
+let sonAtkA = document.getElementById("soundAtk1");
+let sonAtkB = document.getElementById("soundAtk2");
+let sonAtkC = document.getElementById("soundAtk3");
+let sonAtkD = document.getElementById("soundAtk4");
 
 document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
 
-let charArray = ["images/soldat1.png","images/mago1.png","images/elf1.png","images/ange1.png","images/fighter1.png","images/aleatoire.png"];
+let charArray = ["images/soldat1.png", "images/mago1.png", "images/elf1.png", "images/ange1.png", "images/fighter1.png", "images/aleatoire.png"];
 let selectPlus = document.querySelector("#selectionPlus");
 let selectMoins = document.querySelector("#selectionMoins");
 let selectFrame = document.querySelector("#perso-select");
+let nameJob = document.querySelector("#nom-job");
 let boutonSelectionHeros = document.querySelector(".heros");
-let selectionMenu = document.querySelector(".heros-aff"); 
+let selectionMenu = document.querySelector(".heros-aff");
+let boutonSelectionStats = document.querySelector(".infos");
+let selectionMenuB = document.querySelector(".infos-aff");
+let boutonSelectionShop = document.querySelector(".shop");
+let selectionMenuC = document.querySelector(".shop-aff");
+
 
 
 // BASIC Souris
@@ -70,7 +91,7 @@ console.log(basicAttackButton);
 const mediumAttackButton = document.querySelector(".atk1-moy");
 mediumAttackButton.addEventListener("mousedown", mediumAttackStart);
 mediumAttackButton.addEventListener("mouseup", mediumAttackEnd);
- 
+
 //ULTIME Souris
 const hardAttackButton = document.querySelector(".atk1-fort");
 hardAttackButton.addEventListener("mousedown", hardAttackStart);
@@ -88,13 +109,13 @@ let left = document.querySelector("#left");
 let right = document.querySelector("#right");
 
 /*
-*** ATTACK FUNCTIONS
-*/
+ *** ATTACK FUNCTIONS
+ */
 
 function updateCombatLogs(attackName) {
     let d = new Date();
     let dateTimeFormattedInFrench = `${d.toLocaleTimeString("fr-FR")}.${Math.floor(d.getMilliseconds() / 10)}`;
-    
+
     switch (attackName) {
         case "basic":
             el1 = document.createElement("LI");
@@ -132,7 +153,7 @@ function updateCombatLogs(attackName) {
             let afficheAuTop4v4 = logStats1.appendChild(el4v4);
             logStats1.insertBefore(afficheAuTop4v4, logStats1.firstElementChild);
 
-            
+
             el87 = document.createElement("LI");
             el87.innerHTML = `[${dateTimeFormattedInFrench}] Joueur 2 se fait une raison...`;
             let afficheAuTop87 = logStats2.appendChild(el87);
@@ -142,21 +163,22 @@ function updateCombatLogs(attackName) {
     }
 
 }
-
+// AUDIO
 function playAudio1() {
     sonAtkA.play();
     sonAtkA.currentTime = 0.07;
-} 
+}
 
 function pauseAudio1() {
     sonAtkA.pause();
-   // sonAtkA.currentTime = 0.9;
+    // sonAtkA.currentTime = 0.9;
 }
 
 function playAudio2() {
     sonAtkB.play();
     sonAtkB.currentTime = 0.07;
 }
+
 function pauseAudio2() {
     sonAtkB.pause();
     // sonAtkA.currentTime = 0.9;
@@ -166,14 +188,17 @@ function playAudio3() {
     sonAtkC.play();
     sonAtkC.currentTime = 0.07;
 }
+
 function pauseAudio3() {
     sonAtkC.pause();
     // sonAtkA.currentTime = 0.9;
 }
+
 function playAudio4() {
     sonAtkD.play();
     sonAtkD.currentTime = 0.07;
 }
+
 function pauseAudio4() {
     sonAtkD.pause();
     // sonAtkA.currentTime = 0.9;
@@ -181,9 +206,9 @@ function pauseAudio4() {
 
 
 function basicAttackStart() {
-    
+
     changeImg1.src = "images/move/soldat1movatkA.gif";
-    
+
     changeSizeBtnOnAtk.style.maxWidth = "37px";
     changeSizeBtnOnAtk.style.maxHeight = "37px";
 
@@ -203,21 +228,21 @@ function basicAttackEnd() {
     changeSizeBtnOnAtk.style = null;
     changeImg2.src = "images/move/elf1stand.gif";
     updateCombatLogs("basic");
-    
+
     pauseAudio1();
-    
+
     /*si on veut reset le son, mais ca donne un mauvais rendu */
     if (lifePoints === 0) {
         changeImg1.src = "images/move/soldat1stand.gif";
         putEffects1.removeAttribute("src");
         changeImg2.src = "images/move/elf1dead.gif";
-        setTimeout(onceDead,500);
-        
+        setTimeout(onceDead, 500);
+
         affBarVie2();
     }
-    
+
     affBarVie2();
-} 
+}
 
 // MEDIUM ATTACK
 
@@ -232,17 +257,17 @@ function mediumAttackStart() {
     if (lifePoints > 10) {
         lifePoints -= 10;
         attackOnHP2.style.width = `${lifePoints}%`;
-    }
-     else {
+    } else {
         lifePoints = 0;
         attackOnHP2.style.width = `0%`;
         changeImg2.src = "images/move/elf1fall.gif";
     }
 
-    
+
 }
+
 function mediumAttackEnd() {
-    
+
     changeImg1.src = "images/move/soldat1stand.gif";
     changeSizeBtnOnAtk2.style = null;
     changeImg2.src = "images/move/elf1stand.gif";
@@ -259,26 +284,26 @@ function mediumAttackEnd() {
         setTimeout(onceDead, 500);
         document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
     }
-    
+
 }
 
 // HARD ATTACK 
 function hardAttackStart() {
-    
+
     changeImg1.src = "images/move/soldat1invoke.gif";
     putEffects1.src = "images/skills/shield-p1.gif";
 
     changeSizeBtnOnAtk3.style.maxWidth = "37px";
     changeSizeBtnOnAtk3.style.maxHeight = "37px";
     playAudio3();
-    if (lifePoints>35) {
+    if (lifePoints > 35) {
         lifePoints -= 35;
         attackOnHP2.style.width = `${lifePoints}%`;
-        
+
     } else {
         lifePoints = 0;
         attackOnHP2.style.width = `0%`;
-        
+
     }
 
     changeImg2.src = "images/move/elf1fall.gif";
@@ -286,7 +311,7 @@ function hardAttackStart() {
 }
 
 function hardAttackEnd() {
-    
+
     changeImg1.src = "images/move/soldat1stand.gif";
     putEffects1.removeAttribute("src");
     changeSizeBtnOnAtk3.style = null;
@@ -304,26 +329,27 @@ function hardAttackEnd() {
         setTimeout(onceDead, 500);
         document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
     }
-    
+
 }
 
 //DEFENSE SKILL
-function defenseSkillStart () {
+function defenseSkillStart() {
     changeImg1.src = "images/move/soldat1invoke.gif";
     putEffects1.src = "images/skills/shield-p2.gif";
-    
+
     changeSizeBtnOnAtk4.style.maxWidth = "37px";
     changeSizeBtnOnAtk4.style.maxHeight = "37px";
     playAudio4();
-    
+
 }
-function defenseSkillEnd () {
-    
+
+function defenseSkillEnd() {
+
     changeImg1.src = "images/move/soldat1stand.gif";
 
     putEffects1.removeAttribute("src");
     changeSizeBtnOnAtk4.style = null;
-    
+
     updateCombatLogs("def");
     pauseAudio4();
 }
@@ -338,49 +364,111 @@ function onceDead() {
         document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
         changeImg2.src = "images/move/elf1stand.gif";
     }
-    
+
 }
 
 // AFFICHER POURCENTAGE BAR 
 
 function affBarVie2() {
-return document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
+    return document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
 }
 
-// AFFICHER MENUS
+// AFFICHER MENUS ; attention aux z-index a cause de la superposition
+
+selectionMenu.style.display = 'none'; /*none / block / flex ... */
+selectionMenu.style.zIndex = '-1';
+selectionMenuB.style.display = 'none';
+selectionMenuB.style.zIndex = '-1';
+selectionMenuC.style.display = 'none';
+selectionMenuC.style.zIndex = '-1';
+let boutSelChar = false;
+let boutSelStats = false;
+let boutSelShop = false;
 
 let affMenuSelect = () => {
-    selectionMenu.style.display = 'none'; /*none ou block*/
-    selectionMenu.style.zIndex= '-1';
-    console.log("click ok");
-    return this;
-  
+    if (boutSelChar === false) {
+        selectionMenu.style.display = 'flex';
+        selectionMenu.style.zIndex = '1000';
+        boutSelChar = true;
+
+    } else {
+        selectionMenu.style.display = 'none';
+        selectionMenu.style.zIndex = '-1';
+        boutSelChar = false;
+    }
+
+}
+
+
+let affMenuStats = () => {
+    if (boutSelStats === false) {
+        selectionMenuB.style.display = 'flex';
+        selectionMenuB.style.zIndex = '1000';
+        boutSelStats = true;
+    } else {
+        selectionMenuB.style.display = 'none';
+        selectionMenuB.style.zIndex = '-1';
+        boutSelStats = false;
+    }
+}
+let affMenuShop = () => {
+    if (boutSelShop === false) {
+        selectionMenuC.style.display = 'flex';
+        selectionMenuC.style.zIndex = '1000';
+        boutSelShop = true;
+    } else {
+        selectionMenuC.style.display = 'none';
+        selectionMenuC.style.zIndex = '-1';
+        boutSelShop = false;
+    }
 }
 
 
 // PLACER IMAGES SELECTION BOX
 
-let cptGlobal =0;
+let cptGlobal = 0;
+
+let placeAllInOne = () => {
 selectFrame.src = `${charArray[cptGlobal]}`;
+nameJob.innerHTML = `${hero[cptGlobal].name} / ${hero[cptGlobal].job}`;
+document.querySelector(".perso1-nom").innerHTML = `${hero[cptGlobal].name}`;
+document.querySelector(".stat-row1").innerHTML = `${hero[cptGlobal].name}`;
+document.querySelector("#lp-row2").innerHTML = `${hero[cptGlobal].lifeP}`;
+document.querySelector("#weap-row1-2").innerHTML = `${hero[cptGlobal].weapon}`;
+document.querySelector("#atk-row3").innerHTML = `${hero[cptGlobal].attackP}`;
+document.querySelector("#def-row4").innerHTML = `${hero[cptGlobal].defenceP}`;
+document.querySelector("#lvl-row5").innerHTML = `${hero[cptGlobal].lvl}`;
+document.querySelector("#exp-row6").innerHTML = `${hero[cptGlobal].expP}`;
+}
 
 let placerImagesPlus = () => {
     cptGlobal += 1;
-    if (cptGlobal > charArray.length -1 ) {
+    if (cptGlobal > charArray.length - 1) {
         cptGlobal = 0;
     }
     selectFrame.src = `${charArray[cptGlobal]}`;
-    console.log(cptGlobal);
+    if (cptGlobal !== charArray.length - 1) {
+        nameJob.innerHTML = `${hero[cptGlobal].name} / ${hero[cptGlobal].job}`; /*Accede au tableau avec les objets "hero"*/
+    } else {
+        nameJob.innerHTML = `${hero[cptGlobal].name}`;
+    }
+    placeAllInOne();
     
 }
 
 let placerImagesMoins = () => {
     --cptGlobal;
-    if (cptGlobal < 0 ) {
+    if (cptGlobal < 0) {
         cptGlobal = charArray.length - 1;
     }
     console.log(cptGlobal);
     selectFrame.src = `${charArray[cptGlobal]}`;
-
+    if (cptGlobal !== charArray.length - 1) {
+        nameJob.innerHTML = `${hero[cptGlobal].name} / ${hero[cptGlobal].job}`; /*Accede au tableau avec les objets "hero"*/
+    } else {
+        nameJob.innerHTML = `${hero[cptGlobal].name}`;
+    }
+    placeAllInOne();
 }
 
 
@@ -390,9 +478,9 @@ let placerImagesMoins = () => {
 function presse(event) {
     /*console.log(event.keyCode);*/
     if (event.keyCode != null) {
-        switch (event.keyCode) { 
-            case 90:                
-                basicAttackStart();              
+        switch (event.keyCode) {
+            case 90:
+                basicAttackStart();
                 break;
             case 81:
                 mediumAttackStart();
@@ -410,11 +498,10 @@ function presse(event) {
 function relacheBouton(event) {
     let d = new Date();
     /*console.log(event.keyCode);*/
-    
+
     switch (event.keyCode) {
         case 90:
             basicAttackEnd();
-            
             break;
         case 81:
             mediumAttackEnd();
@@ -429,7 +516,7 @@ function relacheBouton(event) {
 };
 
 
-// placerImages();
+placeAllInOne();
 
 
 document.body.addEventListener("keydown", presse);
@@ -439,3 +526,8 @@ document.body.addEventListener("keyup", relacheBouton);
 boutonSelectionHeros.addEventListener("click", affMenuSelect);
 selectPlus.addEventListener("click", placerImagesPlus);
 selectMoins.addEventListener("click", placerImagesMoins);
+
+
+boutonSelectionStats.addEventListener("click", affMenuStats);
+boutonSelectionShop.addEventListener("click", affMenuShop);
+console.log(hero1.name, hero1.job, hero1.weapon);

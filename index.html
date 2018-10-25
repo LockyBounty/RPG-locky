@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="perso1"><img id="img1" src="images/soldat1.png" /></div>
-        <div class="perso1-nom">Joueur 1</div>
+        <div class="perso1-nom"></div>
 
         <div class="perso1-vieSub">
             <div class="perso1-vie">
@@ -24,7 +24,7 @@
         <div class="perso1-exp"><img id="lvl-star1" src="images/Golden_Star.png" /><span id="niv-1">1</span></div>
         <div class="icone-vs"><img id="vs-logo1" src="images/V123.png" /></div>
         <div class="perso2"><img id="img2" src="images/elf1reverse.png" /></div>
-        <div class="perso2-nom">Joueur 2</div>
+        <div class="perso2-nom">Ennemi</div>
 
         <div class="perso2-vieSub">
             <div class="perso2-vie">
@@ -72,9 +72,9 @@
 
     </div>
     <!--ZONE DE LOGS-->
-    <div class="titre-log1">Joueur 1</div>
+    <div class="titre-log1">Joueur</div>
     <div class="log1"></div>
-    <div class="titre-log2">Joueur 2</div>
+    <div class="titre-log2">Ennemi</div>
     <div class="log2"></div>
 
     <!--ZONE DE MENU-->
@@ -91,17 +91,45 @@
             <div class="flecheSelect" id="selectionPlus"><img src="images/background/arrow1white.png" /></div>
         </div>
         <div class="heros-row3">
-            <div>Name / fonction</div>
+            <div id="nom-job">Name / fonction</div>
         </div>
-        
+
     </div>
     <div class="infos"></div>
     <div class="infos-menubar">Infos</div>
-    <div class="infos-aff"></div>
+    <div class="infos-aff">
+        <div class="stat-row1"></div>
+        <div class="stat-row2">
+            <div>Life Points</div>
+            <div id="lp-row2"></div>
+        </div>
+        <div class="stat-row1-2">
+                <div>Weapon</div>
+                <div id="weap-row1-2"></div>
+            </div>
+        <div class="stat-row3">
+            <div>ATK Points</div>
+            <div id="atk-row3"></div>
+        </div>
+        <div class="stat-row4">
+            <div>DEF Points</div>
+            <div id="def-row4"></div>
+        </div>
+        <div class="stat-row5">
+            <div>Level</div>
+            <div id="lvl-row5"></div>
+        </div>
+        <div class="stat-row6">
+            <div>Exp Points</div>
+            <div id="exp-row6"></div>
+        </div>
+    </div>
+
     <div class="shop"></div>
     <div class="shop-menubar">Shop</div>
-    <div class="shop-aff"></div>
+    <div class="shop-aff">
 
+    </div>
 
     <script src="main.js"></script>
 </body>
