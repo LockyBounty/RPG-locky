@@ -17,10 +17,10 @@ class Hero {
 let hero1 = new Hero("Jeanne", "Chevalière", "Claymore");
 let hero2 = new Hero("Catherine", "Pyromancienne", "Pyro-Spiro");
 let hero3 = new Hero("Eleanor", "Prêtresse", "Natura");
-let hero4 = new Hero("Anna", "Mercenaire", "Tomahawk");
+let hero4 = new Hero("Nathanael", "Valkyrie", "Galadbolg");
 let hero5 = new Hero("Galathe", "Combattante", "Poings-de-fer");
-let hero6 = new Hero("Aleatoire", "Aleatoire", "Aleatoire");
-let hero = [hero1, hero2, hero3, hero4, hero5, hero6];
+
+let hero = [hero1, hero2, hero3, hero4, hero5];
 
 
 
@@ -67,7 +67,7 @@ let sonAtkD = document.getElementById("soundAtk4");
 
 document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
 
-let charArray = ["images/soldat1.png", "images/mago1.png", "images/elf1.png", "images/ange1.png", "images/fighter1.png", "images/aleatoire.png"];
+let charArray = ["images/soldat1.png", "images/mago1.png", "images/elf1.png", "images/ange1.png", "images/fighter1.png"];
 let selectPlus = document.querySelector("#selectionPlus");
 let selectMoins = document.querySelector("#selectionMoins");
 let selectFrame = document.querySelector("#perso-select");
