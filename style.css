@@ -874,35 +874,33 @@ li {
     }
 }
 
- .heros-aff {
-    
-
+.heros-aff {
     width: 300px;
     height: 400px;
     background: url(images/background/mountain-bg.jpg);
-    
     background-size: cover;
     border: 3px solid goldenrod;
     border-radius: 15px;
     box-shadow: 1px 1px gray;
     position: fixed;
     display: flex;
-    z-index: 1000;
+    z-index: 600;
     align-items: center;
     left: 50px;
-    top:50px;
+    top: 50px;
     flex-direction: column;
-} 
+    color: blue;
+}
 .flecheSelect {
     width: 40px;
     height: 40px;
-    border-style: solid;
+    /*border-style: solid;
     border-width: 2px;
     border-color: gray;
-    border-radius: 10%;
-    margin:2%;
-
-    display:flex;
+    border-radius: 10%;*/
+    margin: 2%;
+    display: flex;
+    z-index: 601;
 }
 #selectionMoins img{
     
@@ -918,16 +916,25 @@ li {
     height: 155px;
     border-style: solid;
     border-width: 2px;
-    border-color: gray;
+    border-color: white;
     border-radius: 10%;
-    margin:2%;
-
-    display:flex;
+    margin: 2%;
+    display: flex;
+    overflow: hidden; 
+    /*cache les coins des images externes qui depassent qu'on inclut dans une div*/
 }
+    .heroSelect img {
+        display: flex; /*Ne jamais oublier sinon marche pas*/
+        
+        width: 100%; 
+        /*ATTENTION, si on met max-width au lieu de width, 
+        toutes les autres images vont s'aligner sur la largeur max de la premiere*/
+        
+    }
 .heros-aff img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border: 1px solid gray;
+    
 }
 .heros-row1{
     flex:1;
@@ -941,9 +948,10 @@ li {
     flex-direction: row; /*row ok*/
     justify-content: space-between;
     align-items: center;
-    
-    margin:3%;
+ 
 }
+
+
 .heros-row3{
     
     flex:1;
@@ -962,7 +970,7 @@ li {
     border-radius: 5px;
     box-shadow: 1px 1px gray;
     position: fixed;
-    z-index: 1000;
+    z-index: 400;
     left: 50px;
     top:50px;
 }
@@ -977,7 +985,7 @@ li {
     border-radius: 5px;
     box-shadow: 1px 1px gray;
     position: fixed;
-    z-index: 1000;
+    z-index: 450;
     left: 50px;
     top:50px;
 }

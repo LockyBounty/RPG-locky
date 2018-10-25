@@ -55,6 +55,9 @@ document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
 let charArray = ["images/soldat1.png","images/mago1.png","images/elf1.png","images/ange1.png","images/fighter1.png","images/aleatoire.png"];
 let selectPlus = document.querySelector("#selectionPlus");
 let selectMoins = document.querySelector("#selectionMoins");
+let selectFrame = document.querySelector("#perso-select");
+let boutonSelectionHeros = document.querySelector(".heros");
+let selectionMenu = document.querySelector(".heros-aff"); 
 
 
 // BASIC Souris
@@ -341,36 +344,44 @@ function onceDead() {
 // AFFICHER POURCENTAGE BAR 
 
 function affBarVie2() {
-
-
 return document.querySelector("#pv2").innerHTML = `${lifePoints}%`;
+}
 
+// AFFICHER MENUS
+
+let affMenuSelect = () => {
+    selectionMenu.style.display = 'none'; /*none ou block*/
+    selectionMenu.style.zIndex= '-1';
+    console.log("click ok");
+    return this;
+  
 }
 
 
 // PLACER IMAGES SELECTION BOX
 
 let cptGlobal =0;
+selectFrame.src = `${charArray[cptGlobal]}`;
 
-// let placerImages =() => {
-//     for (i=0; i< charArray.length;i++){
-        
-//         let imagesSelect =document.querySelector(`#pers-${i+1}`);
-//         imagesSelect.src = `${charArray[i]}`;
-//         console.log(charArray[i]);
-//     }
-// }
-let placerImagesPlus =() => {
-    
-        
-        let imagesSelect =document.querySelector(`#pers-${i+1}`);
-        imagesSelect.src = `${charArray[i]}`;
-        console.log(charArray[i]);
+let placerImagesPlus = () => {
+    cptGlobal += 1;
+    if (cptGlobal > charArray.length -1 ) {
+        cptGlobal = 0;
+    }
+    selectFrame.src = `${charArray[cptGlobal]}`;
+    console.log(cptGlobal);
     
 }
 
+let placerImagesMoins = () => {
+    --cptGlobal;
+    if (cptGlobal < 0 ) {
+        cptGlobal = charArray.length - 1;
+    }
+    console.log(cptGlobal);
+    selectFrame.src = `${charArray[cptGlobal]}`;
 
-
+}
 
 
 // APPUYER TOUCHES
@@ -380,10 +391,8 @@ function presse(event) {
     /*console.log(event.keyCode);*/
     if (event.keyCode != null) {
         switch (event.keyCode) { 
-            case 90:
-                
-                basicAttackStart();
-                
+            case 90:                
+                basicAttackStart();              
                 break;
             case 81:
                 mediumAttackStart();
@@ -394,12 +403,8 @@ function presse(event) {
             case 87:
                 defenseSkillStart();
                 break;
-
-
         }
     }
-
-
 };
 
 function relacheBouton(event) {
@@ -420,7 +425,6 @@ function relacheBouton(event) {
         case 87:
             defenseSkillEnd();
             break;
-
     };
 };
 
@@ -431,3 +435,7 @@ function relacheBouton(event) {
 document.body.addEventListener("keydown", presse);
 
 document.body.addEventListener("keyup", relacheBouton);
+
+boutonSelectionHeros.addEventListener("click", affMenuSelect);
+selectPlus.addEventListener("click", placerImagesPlus);
+selectMoins.addEventListener("click", placerImagesMoins);
