@@ -9,7 +9,7 @@ class Hero {
         this.movimg = movimg;
         this.lifeP = 100;
         this.attackP = 15;
-        this.defenceP = 30;
+        this.defenceP = 12;
         this.staminaP = 100;
         this.lvl = 1;
         this.expP = 0;
@@ -25,14 +25,25 @@ let hero5 = new Hero("Galathe", "Combattante", "Poings-de-fer", "images/fighter1
 
 let hero = [hero1, hero2, hero3, hero4, hero5];
 
+class Ennemy {
+    constructor(name, lifeP) {
+        this.name = name;
+        this.lifeP = lifeP;
+        this.lvl = "??";
 
+    }
+}
 
+let ennemy1 = new Ennemy("Villain", 1600);
+let ennemyBoss1 = new Ennemy("DragonX", 1000);
 
+let ennemy = [ennemy1, ennemyBoss1];
 
 
 // DECLARATION DE VARIABLES
 
 let cptGlobal = 0;
+let cptGlobal2 = 0;
 
 let attack1 = document.querySelector(".btn-atk1-norm");
 let changeImg1 = document.querySelector("#zone1norm");
@@ -59,12 +70,10 @@ let putEffects1 = document.querySelector("#zone1eff");
 let putEffects2 = document.querySelector("#zone2eff");
 let putEffects2v2 = document.querySelector("#zone2-1eff");
 
-let lifePoints = 100;
+let lifePoints = 100; //pourcent
 let lifePointsEnnemy = 100;
 
-/*function calculPourcentage() {
-    return (chosen1[attack] $ 100)/data_value);--> chosen 1 et data_value a faire
-}*/
+
 let sonAtkA = document.getElementById("soundAtk1");
 let sonAtkB = document.getElementById("soundAtk2");
 let sonAtkC = document.getElementById("soundAtk3");
@@ -212,6 +221,17 @@ function pauseAudio4() {
     // sonAtkA.currentTime = 0.9;
 }
 
+// CALCUL POURCENTAGE ATTACK
+
+function calculPourcentage() {
+    let a = (Math.floor(hero[cptGlobal].attackP * 100) / ennemy[cptGlobal2].lifeP).toFixed(2);
+    parseFloat(a);
+    console.log(a);
+
+    return a;
+}
+
+// ATTACKS 
 
 function basicAttackStart() {
 
@@ -254,12 +274,12 @@ function basicAttackEnd() {
 }
 
 // MEDIUM ATTACK
-
+let temp = 0;
 function mediumAttackStart() {
     if (initialStamina >9) {
         initialStamina -= 10;
         attackStamina1.style.width = `${initialStamina}%`;
-        console.log(`${initialStamina}`);
+        
 
         changeImg1.src = "images/move/soldat1movatkA.gif";
         changeSizeBtnOnAtk2.style.maxWidth = "37px";
@@ -269,9 +289,11 @@ function mediumAttackStart() {
         playAudio2();
 
 
-    if (lifePointsEnnemy > 10) {
-        lifePointsEnnemy -= 10;
-        attackOnHP2.style.width = `${lifePointsEnnemy}%`;
+    if (lifePointsEnnemy > 0) {
+        lifePointsEnnemy -= calculPourcentage();
+        temp = Math.round(lifePointsEnnemy, 2);
+        console.log(temp);
+        attackOnHP2.style.width = `${temp}%`;//<----------------------------
     } else {
         lifePointsEnnemy = 0;
         attackOnHP2.style.width = `0%`;
@@ -399,14 +421,14 @@ function affBarVie2() {
 function regenA() {
     if (initialStamina < hero[cptGlobal].staminaP) {
         (initialStamina)++;
-    }
-else {
+    }else {
     clearInterval();
     }
     attackStamina1.style.width = `${initialStamina}%`;
 }
-
 setInterval(regenA, 200);
+
+
 
 
 
