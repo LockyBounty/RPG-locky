@@ -1,12 +1,14 @@
 // DECLARATION DE CLASSE ET OBJETS
 
 class Hero {
-    constructor(name, job, weapon, frame, movimg) {
+    constructor(name, job, weapon, frame, movimg, atkAB, atkCD) {
         this.name = name;
         this.job = job;
         this.weapon = weapon;
         this.frame = frame;
         this.movimg = movimg;
+        this.atkAB = atkAB;
+        this.atkCD = atkCD;
         this.lifeP = 100;
         this.attackP = 15;
         this.defenceP = 12;
@@ -17,11 +19,11 @@ class Hero {
 }
 
 
-let hero1 = new Hero("Jeanne", "Chevalière", "Theudericus", "images/soldat1.png", "images/move/soldat1stand.gif");
-let hero2 = new Hero("Catherine", "Pyromancienne", "Pyro-Spiro", "images/mago1.png", "images/move/mago1stand.gif");
-let hero3 = new Hero("Eleanor", "Prêtresse", "Natura", "images/elf1.png", "images/move/elf1stand.gif");
-let hero4 = new Hero("Nathanael", "Valkyrie", "Galadbolg", "images/ange1.png","images/move/ange1stand.gif");
-let hero5 = new Hero("Galathe", "Combattante", "Poings-de-fer", "images/fighter1.png", "images/move/fighter1stand.gif");
+let hero1 = new Hero("Jeanne", "Chevalière", "Theudericus", "images/soldat1.png", "images/move/soldat1stand.gif", "images/move/soldat1movatkA.gif", "images/move/soldat1invoke.gif" );
+let hero2 = new Hero("Catherine", "Pyromancienne", "Pyro-Spiro", "images/mago1.png", "images/move/mago1stand.gif", "images/move/mago1atkA.gif", "images/move/mago1invoke.gif");
+let hero3 = new Hero("Eleanor", "Prêtresse", "Natura", "images/elf1.png", "images/move/elf1stand.gif", "images/move/elf1atkA.gif", "images/move/elf1invoke.gif");
+let hero4 = new Hero("Nathanael", "Valkyrie", "Galadbolg", "images/ange1.png", "images/move/ange1stand.gif", "images/move/ange1atkA.gif", "images/move/ange1invoke.gif");
+let hero5 = new Hero("Galathe", "Combattante", "Poings-de-fer", "images/fighter1.png", "images/move/fighter1stand.gif", "images/move/fighter1atkA.gif", "images/move/fighter1invoke.gif");
 
 let hero = [hero1, hero2, hero3, hero4, hero5];
 
@@ -139,7 +141,7 @@ function updateCombatLogs(attackName) {
     switch (attackName) {
         case "basic":
             el1 = document.createElement("LI");
-            el1.innerHTML = `[${dateTimeFormattedInFrench}] ${hero[cptGlobal].name} attaque et inflige  <font face="Chakra" color ="skyblue">${hero[cptGlobal].attackP/2}</font> points de dégats !`;
+            el1.innerHTML = `[${dateTimeFormattedInFrench}] ${hero[cptGlobal].name} attaque et inflige  <font face="Chakra" color ="yellowgreen">${hero[cptGlobal].attackP/2}</font> points de dégats !`;
             let afficheAuTop = logStats1.appendChild(el1);
             logStats1.insertBefore(afficheAuTop, logStats1.firstElementChild);
             el2 = document.createElement("LI");
@@ -236,7 +238,7 @@ function calculPourcentage() {
 
 function basicAttackStart() {
 
-    changeImg1.src = "images/move/soldat1movatkA.gif";
+    changeImg1.src = `${hero[cptGlobal].atkAB}`;
 
     changeSizeBtnOnAtk.style.maxWidth = "37px";
     changeSizeBtnOnAtk.style.maxHeight = "37px";
@@ -244,13 +246,12 @@ function basicAttackStart() {
 
     playAudio1();
 
-    if (lifePointsEnnemy > 0) {
+    if (lifePointsEnnemy > (calculPourcentage()/2)) {
         
         lifePointsEnnemy -= (calculPourcentage())/2;
         totalPV2 = Math.round(lifePointsEnnemy *100)/100; //<-------prend 2 chiffre apres decimale
         console.log(`degats = ${(calculPourcentage())/2}%`);
         attackOnHP2.style.width = `${totalPV2}%`;
-        
 
     }
     changeImg2.src = "images/move/elf1movattaked.gif";
@@ -266,7 +267,7 @@ function basicAttackEnd() {
     pauseAudio1();
 
     /*si on veut reset le son, mais ca donne un mauvais rendu */
-    if (lifePointsEnnemy === 0) {
+    if (lifePointsEnnemy <= 0) {
         changeImg1.src = `${hero[cptGlobal].movimg}`;
         putEffects1.removeAttribute("src");
         changeImg2.src = "images/move/elf1dead.gif";
@@ -284,15 +285,15 @@ function mediumAttackStart() {
     if (initialStamina >9) {
         initialStamina -= 10;
         attackStamina1.style.width = `${initialStamina}%`;
-        
-        changeImg1.src = "images/move/soldat1movatkA.gif";
+
+        changeImg1.src = `${hero[cptGlobal].atkAB}`;
         changeSizeBtnOnAtk2.style.maxWidth = "37px";
         changeSizeBtnOnAtk2.style.maxHeight = "37px";
         putEffects2v2.src = "images/skills/atk-moy1.gif";
         changeImg2.src = "images/move/elf1movattaked.gif";
         playAudio2();
 
-    if (lifePointsEnnemy > 0) {
+        if (lifePointsEnnemy > calculPourcentage()) {
         lifePointsEnnemy -= calculPourcentage();
         totalPV2 = Math.round(lifePointsEnnemy *100)/100; //<-------prend 2 chiffre apres decimale
         console.log(`degats = ${calculPourcentage()}%`);
@@ -330,19 +331,19 @@ function mediumAttackEnd() {
 // HARD ATTACK 
 function hardAttackStart() {
 
-    changeImg1.src = "images/move/soldat1invoke.gif";
+    changeImg1.src = `${hero[cptGlobal].atkCD}`;
     putEffects1.src = "images/skills/shield-p1.gif";
 
     changeSizeBtnOnAtk3.style.maxWidth = "37px";
     changeSizeBtnOnAtk3.style.maxHeight = "37px";
     playAudio3();
-    if (lifePointsEnnemy > 35) {
+    if (lifePointsEnnemy > (calculPourcentage()*3)) {
         lifePointsEnnemy -= calculPourcentage()*3;
         totalPV2 = Math.round(lifePointsEnnemy *100)/100; //<-------prend 2 chiffre apres decimale
         console.log(`degats = ${calculPourcentage()*3}%`);
-        attackOnHP2.style.width = `${totalPV2}}%`;
+        attackOnHP2.style.width = `${totalPV2}%`;
 
-    } else {
+    } else  {
         lifePointsEnnemy = 0;
         attackOnHP2.style.width = `0%`;
 
@@ -360,8 +361,6 @@ function hardAttackEnd() {
     changeSizeBtnOnAtk3.style = null;
     changeImg2.src = "images/move/elf1stand.gif";
     putEffects2.removeAttribute("src");
-    
-    affBarVie2();
     pauseAudio3();
 
     if (lifePointsEnnemy <= 0) {
@@ -372,7 +371,7 @@ function hardAttackEnd() {
         setTimeout(onceDead, 500);
         affBarVie2();
     }
-
+    affBarVie2();
 }
 
 //DEFENSE SKILL
@@ -381,7 +380,7 @@ function defenseSkillStart() {
         initialStamina -= 20;
         attackStamina1.style.width = `${initialStamina}%`;
 
-        changeImg1.src = "images/move/soldat1invoke.gif";
+        changeImg1.src = `${hero[cptGlobal].atkCD}`;
         putEffects1.src = "images/skills/shield-p2.gif";
 
         changeSizeBtnOnAtk4.style.maxWidth = "37px";
@@ -406,7 +405,7 @@ function defenseSkillEnd() {
 function onceDead() {
     let rez = confirm("Excellent, vous avez vaincu l'ennemi !\nVoulez-vous le soigner ?");
     if (rez === true) {
-        lifePointsEnnemy += 100;
+        lifePointsEnnemy = 100;
         attackOnHP2.style.width = `${lifePointsEnnemy}%`;
         document.querySelector("#pv2").innerHTML = `${lifePointsEnnemy}%`;
         changeImg2.src = "images/move/elf1stand.gif";
