@@ -246,13 +246,16 @@ function basicAttackStart() {
 
     playAudio1();
 
-    if (lifePointsEnnemy > (calculPourcentage()/2)) {
-        
-        lifePointsEnnemy -= (calculPourcentage())/2;
-        totalPV2 = Math.round(lifePointsEnnemy *100)/100; //<-------prend 2 chiffre apres decimale
-        console.log(`degats = ${(calculPourcentage())/2}%`);
+    if (lifePointsEnnemy >= 0) {
+
+        lifePointsEnnemy -= (calculPourcentage()) / 2;
+        totalPV2 = Math.round(lifePointsEnnemy * 100) / 100; //<-------prend 2 chiffre apres decimale
+        console.log(`degats = ${(calculPourcentage()) / 2}%`);
         attackOnHP2.style.width = `${totalPV2}%`;
 
+    }
+    else if(lifePointsEnnemy < 0){
+        lifePointsEnnemy = 0;
     }
     changeImg2.src = "images/move/elf1movattaked.gif";
     updateCombatLogs("basic");
@@ -282,7 +285,7 @@ function basicAttackEnd() {
 // MEDIUM ATTACK
 
 function mediumAttackStart() {
-    if (initialStamina >9) {
+    if (initialStamina > 9) {
         initialStamina -= 10;
         attackStamina1.style.width = `${initialStamina}%`;
 
@@ -293,16 +296,16 @@ function mediumAttackStart() {
         changeImg2.src = "images/move/elf1movattaked.gif";
         playAudio2();
 
-        if (lifePointsEnnemy > calculPourcentage()) {
-        lifePointsEnnemy -= calculPourcentage();
-        totalPV2 = Math.round(lifePointsEnnemy *100)/100; //<-------prend 2 chiffre apres decimale
-        console.log(`degats = ${calculPourcentage()}%`);
-        attackOnHP2.style.width = `${totalPV2}%`;
-    } else {
-        lifePointsEnnemy <= 0;
-        attackOnHP2.style.width = `0%`;
-        changeImg2.src = "images/move/elf1fall.gif";
-    }
+        if (lifePointsEnnemy >= 0) {
+            lifePointsEnnemy -= calculPourcentage();
+            totalPV2 = Math.round(lifePointsEnnemy * 100) / 100; //<-------prend 2 chiffre apres decimale
+            console.log(`degats = ${calculPourcentage()}%`);
+            attackOnHP2.style.width = `${totalPV2}%`;
+        } else if (lifePointsEnnemy < 0) {
+            lifePointsEnnemy = 0;
+            attackOnHP2.style.width = `0%`;
+            changeImg2.src = "images/move/elf1fall.gif";
+        }
     updateCombatLogs("medium");
     }
 }
@@ -317,7 +320,7 @@ function mediumAttackEnd() {
     document.querySelector("#pv2").innerHTML = `${totalPV2}%`;//<---- affiche a l ecran que j ai remplace par affBarVie2(); ailleurs
     pauseAudio2();
 
-    if (lifePointsEnnemy <= 0) {
+    if (lifePointsEnnemy < 0) {
         changeImg1.src = `${hero[cptGlobal].movimg}`;
         putEffects1.removeAttribute("src");
         putEffects2v2.removeAttribute("src");
@@ -337,13 +340,13 @@ function hardAttackStart() {
     changeSizeBtnOnAtk3.style.maxWidth = "37px";
     changeSizeBtnOnAtk3.style.maxHeight = "37px";
     playAudio3();
-    if (lifePointsEnnemy > (calculPourcentage()*3)) {
+    if (lifePointsEnnemy >= 0) {
         lifePointsEnnemy -= calculPourcentage()*3;
         totalPV2 = Math.round(lifePointsEnnemy *100)/100; //<-------prend 2 chiffre apres decimale
         console.log(`degats = ${calculPourcentage()*3}%`);
         attackOnHP2.style.width = `${totalPV2}%`;
 
-    } else  {
+    } else if (lifePointsEnnemy < 0){
         lifePointsEnnemy = 0;
         attackOnHP2.style.width = `0%`;
 
